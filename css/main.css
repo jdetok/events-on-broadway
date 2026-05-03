@@ -1,9 +1,35 @@
+/* reduces built in browser padding */
+* {
+    --global-padding: 0.025rem;
+}
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding: var(--global-padding);
 }
 
-body {
+.app {
+    display: grid;
+    grid-template-areas: 
+        "icon . . . menu"
+    ;
+    gap: var(--global-padding);
     font-family: sans-serif;
 }
+
+.icon {
+    grid-area: icon;
+    overflow: hidden;
+    width: max-content;
+    border: 5px solid black;
+    border-radius: 1rem;
+}
+
+.menu {
+    grid-area: menu;
+    display: grid;
+    gap: var(--global-padding);
+    grid-template-columns: 1fr 1fr 1fr;
+    height: fit-content;
+}
+

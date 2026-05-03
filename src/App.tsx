@@ -1,7 +1,10 @@
+import Menu from "./Menu";
+import Icon from "./Icon";
 export default function App() {
     return (
-        <main>
-            <h1>Hello world</h1>
+        <main className="app">
+            <Icon />
+            <Menu />
         </main>
     );
 }
