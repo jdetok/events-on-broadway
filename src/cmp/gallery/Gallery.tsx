@@ -1,4 +1,4 @@
-const images = Object.values(import.meta.glob('../data/img/gallery/s02/*.png', { eager: true }));
+const images = Object.values(import.meta.glob('../../../data/img/gallery/s02/*.png', { eager: true }));
 export default function Gallery() {
     console.log(images);
     return (

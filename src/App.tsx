@@ -1,11 +1,11 @@
-import Menu from "./Menu";
-import Icon from "./Icon";
-import Gallery from "./Gallery";
-import Contact from "./Contact";
-import Header from "./Header";
-import Title from "./Title";
+import Menu from "./cmp/header/Menu";
+import Icon from "./cmp/image/Icon";
+import Gallery from "./cmp/gallery/Gallery";
+import Contact from "./cmp/contact/Contact";
+import Header from "./cmp/header/Header";
+import Title from "./cmp/header/Title";
 import eob from "../data/events-on-broadway-data.json"
-import Background from "./Background";
+import Background from "./cmp/image/Background";
 export default function App() {
     return (
         <main className="app">

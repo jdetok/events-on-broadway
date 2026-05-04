@@ -1,4 +1,4 @@
-import { data } from '../data/events-on-broadway-data.json'
+import { data } from '../../../data/events-on-broadway-data.json'
 
 type contactData = {
     name: string;
