@@ -21,6 +21,6 @@ export default function Menu() {
             {buildPageDirects(pageDirects)}
         </div>
     )
-    menu.props
+    // menu.props
     return menu;
 }

@@ -14,7 +14,8 @@
         "verbatimModuleSyntax": true,
         "paths": {
             "@/*": ["./src/*"]
-        }
+        },
+        "types": ["vite/client"]
     },
     "include": ["./src", "./tests"],
     "exclude": ["./node_modules"]

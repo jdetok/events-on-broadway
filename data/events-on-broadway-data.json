@@ -1,0 +1,18 @@
+{
+    "meta": {},
+    "data": {
+        "siteTitle": "Events on Broadway",
+        "subTitle": "Saint Louis, Missouri",
+        "logoSrc": "./data/img/oglogo_025.png",
+        "contact": {
+            "name": "Events on Broadway, LLC",
+            "email": "eventsonbroadwaystl@gmail.com",
+            "phone": "314-934-3479",
+            "addr": {
+                "street": "8101 North Broadway",
+                "city": "Saint Louis",
+                "state": "MO"
+            }
+        }
+    }
+}
