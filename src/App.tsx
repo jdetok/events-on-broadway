@@ -5,14 +5,16 @@ import Contact from "./Contact";
 import Header from "./Header";
 import Title from "./Title";
 import eob from "../data/events-on-broadway-data.json"
+import Background from "./Background";
 export default function App() {
     return (
         <main className="app">
             <Header>
                 <Icon src={ eob.data.logoSrc } />
-                <Title text={eob.data.siteTitle} subText={ eob.data.subTitle } />
+                <Title text={ eob.data.siteTitle } subText={ eob.data.subTitle } />
                 <Menu />
             </Header>
+            <Background />
             <Gallery />
             <Contact />
         </main>

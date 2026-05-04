@@ -1,6 +1,7 @@
 /* reduces built in browser padding */
 * {
     --global-padding: 0.025rem;
+    --bg: rgba(227, 222, 232, 0.75);
 }
 *, *::before, *::after {
     box-sizing: border-box;
@@ -8,10 +9,15 @@
     padding: var(--global-padding);
 }
 
+body {
+    background-color: var(--bg);
+}
+
 .app {
     display: grid;
     grid-template-areas: 
         "header" 
+        "bgnd"
         "gallery"
         "contact"
     ;
@@ -20,29 +26,34 @@
 }
 
 .header {
-    display: flex;
-    flex-direction: row;
-    align-items: top;
-    justify-content: space-between;
+    display: grid;
+    
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-areas: "icon title menu";
 }
 
-.header > * {
-    max-width: fit-content;
+.background {
+    grid-area: bgnd;
+    border: 4px solid black;
+    background-image: url('../data/img/horiz.png');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 75vh;
 }
 
 .title {
+    grid-area: title;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0.5rem;
 }
 
-/* EXISTING LOGO STYLING */
 .icon {
     grid-area: icon;
 }
-.icon > img {
-    overflow: hidden;
-}
+
 .menu {
     grid-area: menu;
     display: flex;

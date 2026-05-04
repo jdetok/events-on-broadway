@@ -5,3 +5,4 @@ claude
 *.png*
 *.jpg*
 *.heic*
+.DS_Store
