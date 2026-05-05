@@ -11,7 +11,7 @@ export default function App() {
         <main className="app">
             <Header>
                 <Icon src={ eob.data.logoSrc } />
-                <Title text={ eob.data.siteTitle } subText={ eob.data.subTitle } />
+                <Title text={ eob.data.siteTitle } subText={ `${eob.data.subTitle} | ${eob.data.contact.addr.street}` } />
                 <Menu />
             </Header>
             <Background />

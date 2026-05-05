@@ -3,7 +3,6 @@ export default function Title({ text, subText }: { text: string, subText: string
         <div className="title">
             <h1>{text}</h1>
             <h2>{subText}</h2>
-            {/* {children} */}
         </div>
     )
 }
