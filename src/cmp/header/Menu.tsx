@@ -1,3 +1,5 @@
+import Button from "../Button";
+
 type PageDirect = {
     cssClass: string;
     text: string;
@@ -11,7 +13,7 @@ const pageDirects: PageDirect[] = [
 
 function buildPageDirects(pageDirects: PageDirect[]) {
     return pageDirects.map((pd) => (
-        <button key={pd.cssClass} className={pd.cssClass}>{pd.text}</button>
+        <Button onClick={(e) => {console.log('clicked')}}>{pd.text}</Button>
     ));
 }
 
