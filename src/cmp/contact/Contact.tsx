@@ -17,12 +17,15 @@ export default function Contact() {
     return (
         <div className="contact">
             <h2>Contact Us:</h2>
-            <p>{CONTACT.name}</p>
-            <div>
+            <p className="bolder">{CONTACT.name}</p>
+            <div className="bold">
+                <p>{CONTACT.email}</p>
+                <p>{CONTACT.phone}</p>
+            </div>
+            <div className="ital">
                 <p>{CONTACT.addr.street}</p>
                 <p>{CONTACT.addr.city}, {CONTACT.addr.state} {CONTACT.addr.zip}</p>
             </div>
-            <p>{CONTACT.phone} | {CONTACT.email}</p>
         </div>
     )
 }

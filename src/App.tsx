@@ -6,6 +6,7 @@ import Header from "./cmp/header/Header";
 import Title from "./cmp/header/Title";
 import eob from "../data/events-on-broadway-data.json"
 import Background from "./cmp/image/Background";
+import RequestBooking, { type formData } from "./cmp/contact/RequestBooking";
 export default function App() {
     return (
         <main className="app">
@@ -16,6 +17,7 @@ export default function App() {
             </Header>
             <Background />
             <Gallery />
+            <RequestBooking {...eob.data.form as formData} />
             <Contact />
         </main>
     );

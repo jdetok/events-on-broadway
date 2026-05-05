@@ -4,9 +4,9 @@ type PageDirect = {
 }
 
 const pageDirects: PageDirect[] = [
-    {cssClass: 'home', text: 'Home'},
-    {cssClass: 'contact', text: 'Contact Us'},
-    {cssClass: 'about', text: 'About Us'},
+    {cssClass: 'btn-home', text: 'Home'},
+    {cssClass: 'btn-contact', text: 'Contact Us'},
+    {cssClass: 'btn-about', text: 'About Us'},
 ];
 
 function buildPageDirects(pageDirects: PageDirect[]) {

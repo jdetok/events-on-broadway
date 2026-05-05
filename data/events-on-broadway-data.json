@@ -13,6 +13,32 @@
                 "city": "Saint Louis",
                 "state": "MO"
             }
+        },
+        "form": {
+            "title": "Request to Book an Event",
+            "cssClass": "request-booking",
+            "inputs": [
+                {
+                    "inputType": "text",
+                    "cssClass": "name",
+                    "placeholder": "Name of requestor (person or organization)"
+                },
+                {
+                    "inputType": "email",
+                    "cssClass": "mail",
+                    "placeholder": "Enter a valid email address"
+                },
+                {
+                    "inputType": "date",
+                    "cssClass": "date",
+                    "placeholder": "What date are you requesting to book the space?"
+                },
+                {
+                    "inputType": "textarea",
+                    "cssClass": "desc",
+                    "placeholder": "Describe your request"
+                }
+            ]
         }
     }
 }
