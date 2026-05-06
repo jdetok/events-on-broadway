@@ -4,6 +4,7 @@
     --bdr-rad: 1rem;
     --bdr-cmp: 2px solid black;
     --bg: rgba(227, 222, 232, 0.75);
+    --pdg-cmp: 0.5rem;
 }
 *, *::before, *::after {
     box-sizing: border-box;
@@ -35,10 +36,9 @@ button:hover {
         "icon title menu"
         "header header header" 
         "bgnd bgnd bgnd"
+        "request request contact"
         "gallery gallery gallery"
-        "request request request"
-        "contact map map"
-        
+        "hours map map"
     ;
     gap: 0.5rem;
     width: 99%;
@@ -68,10 +68,10 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.5rem;
+    padding: var(--pdg-cmp);
 }
 .title h1 {
-    font-size: 60px;
+    font-size: 50px;
 }
 .title h2 {
     font-size: 26px;
@@ -85,6 +85,7 @@ button:hover {
     display: flex;
     flex-direction: row;
     gap: var(--global-padding);
+    padding: var(--pdg-cmp);
     height: fit-content;
     position: sticky;
     top: 0;
@@ -119,7 +120,7 @@ button:hover {
     border: var(--bdr-cmp);
     border-radius: 1rem;
     margin: 0 auto;
-    padding: 1rem;
+    padding: var(--pdg-cmp);
     width: 100%;
     max-width: 100%;
 }
@@ -152,7 +153,7 @@ button:hover {
     grid-area: contact;
     border: var(--bdr-cmp);
     border-radius: var(--bdr-rad);
-    padding: 1rem;
+    padding: var(--pdg-cmp);
 }
 
 .contact .bolder {
@@ -171,6 +172,41 @@ button:hover {
     grid-area: map;
     border: var(--bdr-cmp);
     border-radius: var(--bdr-rad);
+}
+
+.biz-hours {
+    grid-area: hours;
+    border: var(--bdr-cmp);
+    border-radius: var(--bdr-rad);
+    padding: var(--pdg-cmp);
+}
+
+.biz-hours > ul {
+    border: var(--bdr-cmp);
+    border-radius: var(--bdr-rad);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    list-style-type: none;
+    gap: 2rem;
+    padding: var(--pdg-cmp);
+    max-width: 100%;
+    vertical-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.biz-hours > ul > li {
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.biz-hours > ul > li.left {
+    text-align: left;
+    font-weight: bold;
+}
+
+.biz-hours > ul > li.right {
+    text-align: right;
 }
 
 @media (max-width: 900px) {

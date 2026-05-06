@@ -1,26 +1,26 @@
-import Menu from "./cmp/header/Menu";
 import Icon from "./cmp/image/Icon";
+import Title from "./cmp/header/Title";
+import ButtonRow from "./cmp/ButtonRow";
 import Gallery from "./cmp/gallery/Gallery";
 import Contact from "./cmp/contact/Contact";
-import Title from "./cmp/header/Title";
-import eob from "../data/events-on-broadway-data.json"
+import BizHours from "./cmp/contact/BizHours";
 import Background from "./cmp/image/Background";
-import RequestBooking, { type formData } from "./cmp/contact/RequestBooking";
 import GoogleMapsIFrame from "./cmp/GoogleMapsIFrame";
+import RequestBooking, { type formData } from "./cmp/contact/RequestBooking";
+import { data } from "../data/events-on-broadway-data.json"
 
 export default function App() {
     return (
         <main className="app">
-            <Icon src={ eob.data.logoSrc } />
-            <Title
-                text={eob.data.siteTitle}
-                subText={`${eob.data.subTitle} | ${eob.data.contact.addr.street}`} />
-            <Menu />
+            <Icon src={ data.logoSrc } />
+            <Title text={data.siteTitle} subText={`${data.subTitle}`} />
+            <ButtonRow />
             <Background />
             <Gallery />
-            <RequestBooking {...eob.data.form as formData} />
+            <RequestBooking {...data.form as formData} />
+            <BizHours />
             <Contact />
             <GoogleMapsIFrame />
         </main>
-    );
+    )
 }

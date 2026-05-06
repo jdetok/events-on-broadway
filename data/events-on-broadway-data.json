@@ -8,10 +8,16 @@
             "name": "Events on Broadway, LLC",
             "email": "eventsonbroadwaystl@gmail.com",
             "phone": "314-934-3479",
+            "hours": [
+                ["Mon-Thu", "10am-3pm"],
+                ["Fri-Sat", "Appointment Only"],
+                ["Sunday", "Closed"]
+            ],
             "addr": {
                 "street": "8101 North Broadway",
                 "city": "Saint Louis",
-                "state": "MO"
+                "state": "MO",
+                "zip": "63147"
             }
         },
         "form": {

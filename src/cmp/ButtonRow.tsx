@@ -1,5 +1,5 @@
 import type { MouseEventHandler } from "react";
-import Button from "../Button";
+import Button from "./Button";
 
 type buttonData = {
     cssClass: string;
@@ -9,8 +9,9 @@ type buttonData = {
 
 const buttonDatas: buttonData[] = [
     {cssClass: 'btn-home', text: 'Home', onClick: () => { window.scrollTo({top: 0, behavior: 'smooth'})}},
-    {cssClass: 'btn-contact', text: 'Contact Us'},
-    {cssClass: 'btn-about', text: 'About Us'},
+    {cssClass: 'btn-contact', text: 'Contact'},
+    {cssClass: 'btn-gallery', text: 'Gallery'},
+    {cssClass: 'btn-about', text: 'About'},
 ];
 
 function buildbuttonDatas(buttonDatas: buttonData[]) {
@@ -19,7 +20,7 @@ function buildbuttonDatas(buttonDatas: buttonData[]) {
     ));
 }
 
-export default function Menu() {
+export default function ButtonRow() {
     const menu = (
         <div className="menu">
             {buildbuttonDatas(buttonDatas)}
