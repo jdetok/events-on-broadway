@@ -1,4 +1,5 @@
 import BigImg from "./BigImg";
+
 import Img from "./Img";
 import { useState, useEffect } from "react";
 
@@ -25,16 +26,16 @@ export default function Gallery() {
 
     return (
         <div className={cssClass}>
-            {selected && (
-                <>
-                    <div className="bigimg-overlay" />
-                    <BigImg src={selected} onClick={() => setSelected(null)} onPrev={showPrev} onNext={showNext}/>
-                </>
-            )}
+            {selected && (<>
+                <div className="bigimg-overlay" />
+                <BigImg src={selected} onClick={() => setSelected(null)} onPrev={showPrev} onNext={showNext} />
+            </>)}
             
-            {Object.values(images).map((module: any, i) => (
-                <Img key={module.default} src={module.default} cssClass={`${cssClass}-${i}`} 
-                    onClick={() => setSelected(module.default)}
+            {Object.values(images).map((m: any, i) => (
+                <Img key={m.default} src={m.default}
+                    cssClass={`${cssClass}-${i}`} 
+                    alt={`Gallery image ${i+1}/${len}`}
+                    onClick={() => setSelected(m.default)}
                 />
             ))}
         </div>

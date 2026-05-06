@@ -247,7 +247,9 @@ button:hover {
 
 .bigimg-inner {
     position: relative;
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     pointer-events: all;
 }
 
@@ -267,23 +269,18 @@ button:hover {
     background: rgba(0, 0, 0, 0.7);
     z-index: 998;
 }
-.bigimg-close {
-    position: absolute;
-    top: -1rem;
-    right: -1rem;
-    border: 2px solid white;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    z-index: 1000;
+
+.bigimg-inner > .btn-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-areas: "prev next close";
+    margin: var(--pdg-cmp) 0;
     pointer-events: all;
-    padding: 0.2rem 0.6rem;
 }
 
-.bigimg-prev, .bigimg-next {
-    position: absolute;
-    bottom: -3.5rem;
-    transform: translateY(-50%);
+.bigimg-close, .bigimg-prev, .bigimg-next {
+    position: static;
+    transform: none;
     border: 2px solid white;
     color: white;
     font-size: 1rem;
@@ -292,8 +289,9 @@ button:hover {
     z-index: 1000;
 }
 
-.bigimg-prev { left: 45%; }
-.bigimg-next { right: 45%; }
+.bigimg-close { grid-area: close; }
+.bigimg-prev { grid-area: prev; }
+.bigimg-next { grid-area: next; }
 
 @media (max-width: 900px) {
     .icon, .background {

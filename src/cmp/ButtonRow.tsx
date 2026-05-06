@@ -1,29 +1,13 @@
-import type { MouseEventHandler } from "react";
+import type { buttonData } from "@/types";
 import Button from "./Button";
+import type { MouseEventHandler } from "react";
 
-type buttonData = {
-    cssClass: string;
-    text: string;
-    onClick?: MouseEventHandler;
-}
-
-const buttonDatas: buttonData[] = [
-    {cssClass: 'btn-home', text: 'Home', onClick: () => { window.scrollTo({top: 0, behavior: 'smooth'})}},
-    {cssClass: 'btn-contact', text: 'Contact'},
-    {cssClass: 'btn-gallery', text: 'Gallery'},
-    {cssClass: 'btn-about', text: 'About'},
-];
-
-function buildbuttonDatas(buttonDatas: buttonData[]) {
-    return buttonDatas.map((pd, i) => (
-        <Button key={`button-${i}`} cssClass={pd.cssClass}>{pd.text}</Button>
-    ));
-}
-
-export default function ButtonRow() {
+export default function ButtonRow({ buttons }: { buttons: buttonData[] }) {
     return (
         <div className="btn-row">
-            {buildbuttonDatas(buttonDatas)}
+            {buttons.map((btn, i) => (
+                <Button key={`${btn.cssClass}-${i}`} cssClass={btn.cssClass} onClick={btn.onClick as MouseEventHandler}>{btn.text}</Button>
+            ))}
         </div>
     )
 }

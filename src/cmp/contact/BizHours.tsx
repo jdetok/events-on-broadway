@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { data } from '../../../data/events-on-broadway-data.json'
+import { data } from '../../../data/eventsOnBroadwayData.json'
 
 export default function BizHours({ children }: { children?: ReactNode}) {
     const hours = data.contact.hours as [string, string][];
