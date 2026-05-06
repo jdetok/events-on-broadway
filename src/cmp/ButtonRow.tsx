@@ -15,8 +15,8 @@ const buttonDatas: buttonData[] = [
 ];
 
 function buildbuttonDatas(buttonDatas: buttonData[]) {
-    return buttonDatas.map((pd) => (
-        <Button cssClass={pd.cssClass}>{pd.text}</Button>
+    return buttonDatas.map((pd, i) => (
+        <Button key={`button-${i}`} cssClass={pd.cssClass}>{pd.text}</Button>
     ));
 }
 

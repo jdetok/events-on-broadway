@@ -96,22 +96,7 @@ button:hover {
     height: fit-content;
     position: sticky;
     top: 0;
-}
-
-.gallery {
-    overflow: auto;
-    grid-area: gallery;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin: 0 auto;
-    border: var(--bdr-cmp);
-    border-radius: var(--bdr-rad);
-}
-
-.gallery > img {
-    border: var(--bdr-cmp);
-    border-radius: var(--bdr-rad);
+    justify-content: flex-end;
 }
 
 .request-booking {
@@ -226,6 +211,76 @@ button:hover {
 
 .biz-hours > ul > li.right {
     text-align: right;
+}
+
+.gallery {
+    overflow: auto;
+    grid-area: gallery;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+    margin: 0 auto;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: var(--bdr-rad);
+    z-index: 999;
+}
+
+.gallery > img {
+    border: var(--bdr-cmp);
+    border-radius: var(--bdr-rad);
+    height: 50rem;
+    /* height: 600px; */
+    z-index: 998;
+}
+
+.bigimg {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    pointer-events: none;
+}
+
+.bigimg-inner {
+    position: relative;
+    display: inline-flex;
+    pointer-events: all;
+}
+
+.bigimg-inner > img {
+    border: 1px solid white;
+    border-radius: var(--bdr-rad);
+    max-width: 90vw;
+    max-height: 90vh;
+    height: 80vh;
+    object-fit: contain;
+    pointer-events: all;
+}
+
+.bigimg-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    /* pointer-events: all; */
+    /* cursor: pointer; */
+}
+.bigimg-close {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid white;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 1000;
+    pointer-events: all;
+    padding: 0.2rem 0.6rem;
 }
 
 @media (max-width: 900px) {
