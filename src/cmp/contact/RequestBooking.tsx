@@ -27,7 +27,7 @@ export default function RequestBooking(data: formData) {
 
     return (
         <div className={data.cssClass}>
-            <h2>{data.title}</h2>
+            <h2 className='head'>{data.title}</h2>
             {data.inputs.map((input) => (
                 input.inputType === 'textarea'
                     ? <textarea
@@ -46,7 +46,7 @@ export default function RequestBooking(data: formData) {
                         onChange={(e) => handleChange(input.cssClass, e.target.value)}
                     />
             ))}
-            <button onClick={handleSubmit}>Submit</button>
+            <button className="submit" onClick={handleSubmit}>Submit</button>
         </div>
     )
 }

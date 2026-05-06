@@ -21,11 +21,9 @@ function buildbuttonDatas(buttonDatas: buttonData[]) {
 }
 
 export default function ButtonRow() {
-    const menu = (
-        <div className="menu">
+    return (
+        <div className="btn-row">
             {buildbuttonDatas(buttonDatas)}
         </div>
     )
-    // menu.props
-    return menu;
 }
