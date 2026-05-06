@@ -266,14 +266,11 @@ button:hover {
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     z-index: 998;
-    /* pointer-events: all; */
-    /* cursor: pointer; */
 }
 .bigimg-close {
     position: absolute;
     top: -1rem;
     right: -1rem;
-    background: rgba(0, 0, 0, 0.6);
     border: 2px solid white;
     color: white;
     font-size: 1rem;
@@ -282,6 +279,21 @@ button:hover {
     pointer-events: all;
     padding: 0.2rem 0.6rem;
 }
+
+.bigimg-prev, .bigimg-next {
+    position: absolute;
+    bottom: -3.5rem;
+    transform: translateY(-50%);
+    border: 2px solid white;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    pointer-events: all;
+    z-index: 1000;
+}
+
+.bigimg-prev { left: 45%; }
+.bigimg-next { right: 45%; }
 
 @media (max-width: 900px) {
     .icon, .background {
