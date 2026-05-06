@@ -2,13 +2,16 @@ import { type MouseEventHandler, type ReactNode } from "react"
 
 type buttonProps = {
     buttonType?: 'primary' | 'secondary';
-    onClick: MouseEventHandler;
-    children: ReactNode;
+    cssClass?: string;
+    onClick?: MouseEventHandler;
+    children?: ReactNode;
 }
 
-export default function Button({ buttonType = 'primary', onClick, children }: buttonProps) {
+export default function Button({ buttonType = 'primary', onClick, cssClass, children }: buttonProps) {
     return (
-        <button className={buttonType === 'primary' ? 'btn1' : 'btn2'} onClick={onClick}>
+        <button
+            onClick={onClick}
+            className={`${buttonType === 'primary' ? 'btn1' : 'btn2'} ${cssClass}`} >
             {children}
         </button>
     )

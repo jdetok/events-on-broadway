@@ -1,26 +1,28 @@
+import type { MouseEventHandler } from "react";
 import Button from "../Button";
 
-type PageDirect = {
+type buttonData = {
     cssClass: string;
     text: string;
+    onClick?: MouseEventHandler;
 }
 
-const pageDirects: PageDirect[] = [
-    {cssClass: 'btn-home', text: 'Home'},
+const buttonDatas: buttonData[] = [
+    {cssClass: 'btn-home', text: 'Home', onClick: () => { window.scrollTo({top: 0, behavior: 'smooth'})}},
     {cssClass: 'btn-contact', text: 'Contact Us'},
     {cssClass: 'btn-about', text: 'About Us'},
 ];
 
-function buildPageDirects(pageDirects: PageDirect[]) {
-    return pageDirects.map((pd) => (
-        <Button onClick={(e) => {console.log('clicked')}}>{pd.text}</Button>
+function buildbuttonDatas(buttonDatas: buttonData[]) {
+    return buttonDatas.map((pd) => (
+        <Button cssClass={pd.cssClass}>{pd.text}</Button>
     ));
 }
 
 export default function Menu() {
     const menu = (
         <div className="menu">
-            {buildPageDirects(pageDirects)}
+            {buildbuttonDatas(buttonDatas)}
         </div>
     )
     // menu.props

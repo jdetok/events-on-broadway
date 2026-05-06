@@ -11,6 +11,8 @@
 - form submission for booking requests
 - any interest in storing customer bookings etc?
 - highlight photo when clicked on 
+- upload new photos
+- optional descriptions when you click on a photo
 
 ## Company Logo
 - can I make a logo for the site?
