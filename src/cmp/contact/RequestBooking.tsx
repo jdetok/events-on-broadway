@@ -18,8 +18,8 @@ export default function RequestBooking(data: formData) {
         <div className={data.cssClass}>
             <h2 className='head'>{data.title}</h2>
             {data.inputs.map((input) => (
-                <label className={input.cssClass}>
-                    {input.placeholder}:<br></br>
+                <div className={input.cssClass}>
+                    <div className="input-label">{input.placeholder}:</div>
                     {input.inputType === 'textarea'
                         ? <textarea
                             key={input.cssClass}
@@ -35,7 +35,7 @@ export default function RequestBooking(data: formData) {
                             onChange={(e) => handleChange(input.cssClass, e.target.value)}
                         />
                     }
-                </label>  
+                </div>  
             ))}
             <button className="submit" onClick={handleSubmit}>Submit</button>
         </div>

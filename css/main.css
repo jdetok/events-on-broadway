@@ -98,15 +98,13 @@ button:hover {
     top: 0;
     justify-content: flex-end;
 }
-
 .request-booking {
     grid-area: request;
     display: grid;
     grid-template-areas:
         "head head head"
-        "name name num"
-        "mail mail mail"
-        "date1 date2 date3"
+        "name name mail"
+        "date1 date2 num"
         "desc desc desc"
         "submit submit submit"
     ;
@@ -118,7 +116,10 @@ button:hover {
     width: 100%;
     max-width: 100%;
 }
-.request-booking > label > input {
+.request-booking > div > .input-label {
+    margin: 0 0 5px 2px;
+}
+.request-booking > div > input {
     width: 100%;
     border: var(--bdr-form);
     border-radius: var(--bdr-rad);

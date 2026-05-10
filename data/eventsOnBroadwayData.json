@@ -32,7 +32,7 @@
                 {
                     "inputType": "email",
                     "cssClass": "mail",
-                    "placeholder": "Enter a valid email address"
+                    "placeholder": "Email address"
                 },
                 {
                     "inputType": "number",
@@ -48,11 +48,6 @@
                     "inputType": "date",
                     "cssClass": "date2",
                     "placeholder": "Second-choice date"
-                },
-                {
-                    "inputType": "date",
-                    "cssClass": "date3",
-                    "placeholder": "Third-choice date"
                 },
                 {
                     "inputType": "textarea",
