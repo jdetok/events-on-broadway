@@ -1,20 +1,6 @@
-import { data } from '../../../data/eventsOnBroadwayData.json';
-
-type contactData = {
-    name: string;
-    email: string;
-    phone: string;
-    hours: string[][];
-    addr: {
-        street: string;
-        city: string;
-        state: string;
-        zip: string;
-    };
-};
+import { CONTACT } from '@/consts';
 
 export default function Contact() {
-    const CONTACT = data.contact as contactData;
     return (
         <div className="contact">
             <h2>Contact Us:</h2>

@@ -6,19 +6,18 @@ import Contact from "./contact/Contact";
 import BizHours from "./contact/BizHours";
 import Background from "./image/Background";
 import GoogleMapsIFrame from "./GoogleMapsIFrame";
-import RequestBooking, { type formData } from "./contact/RequestBooking";
-import { data } from "../../data/eventsOnBroadwayData.json";
-import { mainSiteButtons } from "@/consts";
+import RequestBooking from "./contact/RequestBooking";
+import { FORM, TITLE, SUBTITLE, ICON_SRC, mainSiteButtons } from "@/consts";
 
 export default function App() {
     return (
         <main className="app">
-            <Icon src={ data.logoSrc } />
-            <Title text={data.siteTitle} subText={`${data.subTitle}`} />
+            <Icon src={ ICON_SRC } />
+            <Title text={TITLE} subText={SUBTITLE} />
             <ButtonRow buttons={mainSiteButtons} />
             <Background />
             <Gallery />
-            <RequestBooking {...data.form as formData} />
+            <RequestBooking {...FORM} />
             <BizHours />
             <Contact />
             <GoogleMapsIFrame />

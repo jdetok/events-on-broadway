@@ -1,16 +1,5 @@
 import { useState } from 'react';
-
-type formInput = {
-    inputType: 'text' | 'date' | 'email' | 'textarea' | 'number';
-    cssClass: string;
-    placeholder: string;
-};
-
-export type formData = {
-    title: string;
-    cssClass: string;
-    inputs: formInput[];
-};
+import type { formData } from '@/types';
 
 export default function RequestBooking(data: formData) {
     const [values, setValues] = useState<Record<string, string>>(
