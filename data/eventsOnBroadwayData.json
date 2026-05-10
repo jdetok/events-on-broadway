@@ -27,7 +27,7 @@
                 {
                     "inputType": "text",
                     "cssClass": "name",
-                    "placeholder": "Name of requestor (person or organization)"
+                    "placeholder": "Name (person or organization)"
                 },
                 {
                     "inputType": "email",
@@ -35,14 +35,29 @@
                     "placeholder": "Enter a valid email address"
                 },
                 {
+                    "inputType": "number",
+                    "cssClass": "num",
+                    "placeholder": "Estimated number of guests"
+                },
+                {
                     "inputType": "date",
-                    "cssClass": "date",
-                    "placeholder": "What date are you requesting to book the space?"
+                    "cssClass": "date1",
+                    "placeholder": "Preferred date"
+                },
+                {
+                    "inputType": "date",
+                    "cssClass": "date2",
+                    "placeholder": "Second-choice date"
+                },
+                {
+                    "inputType": "date",
+                    "cssClass": "date3",
+                    "placeholder": "Third-choice date"
                 },
                 {
                     "inputType": "textarea",
                     "cssClass": "desc",
-                    "placeholder": "Describe your request"
+                    "placeholder": "Please briefly describe the event for which you wish to book the space"
                 }
             ]
         }

@@ -103,11 +103,12 @@ button:hover {
     grid-area: request;
     display: grid;
     grid-template-areas:
-        "head submit"
-        "name name"
-        "mail mail"
-        "date date"
-        "desc desc"
+        "head head head"
+        "name name num"
+        "mail mail mail"
+        "date1 date2 date3"
+        "desc desc desc"
+        "submit submit submit"
     ;
     gap: 0.4rem;
     border: var(--bdr-cmp);
@@ -116,6 +117,12 @@ button:hover {
     padding: var(--pdg-cmp);
     width: 100%;
     max-width: 100%;
+}
+.request-booking > label > input {
+    width: 100%;
+    border: var(--bdr-form);
+    border-radius: var(--bdr-rad);
+    padding: var(--pdg-cmp);
 }
 .request-booking > * {
     border: var(--bdr-form);
@@ -135,13 +142,28 @@ button:hover {
     grid-area: name;
 }
 
-.request-booking > .date {
-    grid-area: date;
+.request-booking > .date1 {
+    grid-area: date1;
 }
 
+.request-booking > .date2 {
+    grid-area: date2;
+}
+
+.request-booking > .date3 {
+    grid-area: date3;
+}
+
+.request-booking > .num {
+    grid-area: num;
+}
 .request-booking > .desc {
     grid-area: desc;
+}
+.request-booking > .desc > textarea {
     height: 100px;
+    border-radius: var(--bdr-rad);
+    padding: var(--pdg-cmp);
     vertical-align: top;
     width: 100%;
     max-width: 100%;
@@ -224,7 +246,7 @@ button:hover {
     border-left: 1px solid black;
     border-right: 1px solid black;
     border-radius: var(--bdr-rad);
-    z-index: 999;
+    /* z-index: 999; */
 }
 
 .gallery > img {
@@ -232,7 +254,7 @@ button:hover {
     border-radius: var(--bdr-rad);
     height: 50rem;
     /* height: 600px; */
-    z-index: 998;
+    /* z-index: 998; */
 }
 
 .bigimg {

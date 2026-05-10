@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 type formInput = {
-    inputType: 'text' | 'date' | 'email' | 'textarea';
+    inputType: 'text' | 'date' | 'email' | 'textarea' | 'number';
     cssClass: string;
     placeholder: string;
 };
@@ -29,22 +29,24 @@ export default function RequestBooking(data: formData) {
         <div className={data.cssClass}>
             <h2 className='head'>{data.title}</h2>
             {data.inputs.map((input) => (
-                input.inputType === 'textarea'
-                    ? <textarea
-                        key={input.cssClass}
-                        className={input.cssClass}
-                        placeholder={input.placeholder}
-                        value={values[input.cssClass]}
-                        onChange={(e) => handleChange(input.cssClass, e.target.value)}
-                    />
-                    : <input
-                        key={input.cssClass}
-                        className={input.cssClass}
-                        type={input.inputType}
-                        placeholder={input.placeholder}
-                        value={values[input.cssClass]}
-                        onChange={(e) => handleChange(input.cssClass, e.target.value)}
-                    />
+                <label className={input.cssClass}>
+                    {input.placeholder}:<br></br>
+                    {input.inputType === 'textarea'
+                        ? <textarea
+                            key={input.cssClass}
+                            className={input.cssClass}
+                            placeholder={input.placeholder}
+                            value={values[input.cssClass]}
+                            onChange={(e) => handleChange(input.cssClass, e.target.value)}
+                        /> : <input
+                            key={input.cssClass}
+                            type={input.inputType}
+                            placeholder={input.placeholder}
+                            value={values[input.cssClass]}
+                            onChange={(e) => handleChange(input.cssClass, e.target.value)}
+                        />
+                    }
+                </label>  
             ))}
             <button className="submit" onClick={handleSubmit}>Submit</button>
         </div>
