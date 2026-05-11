@@ -27,7 +27,7 @@ export default function Gallery() {
     return (
         <div className={cssClass}>
             {selected && (<>
-                <div className="bigimg-overlay" />
+                <div className="bigimg-overlay" onClick={() => setSelected(null)} />
                 <BigImg src={selected} onClick={() => setSelected(null)} onPrev={showPrev} onNext={showNext} />
             </>)}
             
