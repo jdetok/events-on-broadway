@@ -1,0 +1,13 @@
+services: 
+    mongo:
+        image: mongo
+        env_file:
+            - .env
+        restart: always
+    mongo-express:
+        image: mongo-express
+        env_file:
+            - .env
+        restart: always
+        ports:
+            - 8081:8081
