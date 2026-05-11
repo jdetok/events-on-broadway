@@ -3,7 +3,6 @@ import Title from "./header/Title";
 import ButtonRow from "./ButtonRow";
 import Gallery from "./gallery/Gallery";
 import Contact from "./contact/Contact";
-import BizHours from "./contact/BizHours";
 import Background from "./image/Background";
 import GoogleMapsIFrame from "./GoogleMapsIFrame";
 import RequestBooking from "./contact/RequestBooking";
@@ -18,7 +17,6 @@ export default function App() {
             <Background />
             <Gallery />
             <RequestBooking {...FORM} />
-            <BizHours />
             <Contact />
             <GoogleMapsIFrame />
         </main>
