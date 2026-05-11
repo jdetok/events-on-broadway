@@ -263,15 +263,12 @@ button:hover {
     border-left: 1px solid black;
     border-right: 1px solid black;
     border-radius: var(--bdr-rad);
-    /* z-index: 999; */
 }
 
 .gallery > img {
     border: var(--bdr-cmp);
     border-radius: var(--bdr-rad);
     height: 50rem;
-    /* height: 600px; */
-    /* z-index: 998; */
 }
 
 .bigimg {
