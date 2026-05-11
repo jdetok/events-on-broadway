@@ -12,11 +12,27 @@ export default function RequestBooking(data: formData) {
 
     const handleSubmit = () => {
         console.log(values);
+        const path = `.${data.cssClass} > .head > .error`;
+        const errDiv = document.querySelector(path) as HTMLDivElement;
+        if (!errDiv) throw new Error("couldn't find error div");
+
+        let txt: string; 
+        if (Object.values(values).some((v) => v === "")) {
+            errDiv.style.display = 'block';
+            txt = 'All form inputs must be populated.';
+        } else {
+            errDiv.style.display = 'none';
+            txt = '';
+        }
+        errDiv.textContent = txt;
     }
 
     return (
-        <div className={data.cssClass}>
-            <h2 className='head'>{data.title}</h2>
+        <div className={data.cssClass} id={data.cssClass}>
+            <div className='head'>
+                <h2>{data.title}</h2>
+                <div className='error'></div>
+            </div>
             {data.inputs.map((input) => (
                 <div className={input.cssClass}>
                     <div className="input-label">{input.placeholder}:</div>
