@@ -33,11 +33,41 @@ export default function RequestBooking(data: formData) {
         }
     }
 
+    const handleClearForm = () => {
+        setValues(Object.fromEntries(data.inputs.map((input) => [input.cssClass, ""])));
+    }
+
+    const handleFillForm = () => {
+        const filled: Record<string, string> = {};
+        data.inputs.forEach((input) => {
+            switch (input.inputType) {
+                case 'text':
+                    filled[input.cssClass] = 'Test Text';
+                    break;
+                case 'email':
+                    filled[input.cssClass] = 'test@test.com';
+                    break;
+                case 'number':
+                    filled[input.cssClass] = '1';
+                    break;
+                case 'date':
+                    filled[input.cssClass] = new Date().toISOString().split('T')[0] ?? '';
+                    break;
+                case 'textarea':
+                    filled[input.cssClass] = 'Test textarea content.';
+                    break;
+            }
+        });
+        setValues((prev) => ({ ...prev, ...filled }));
+    }
+
     return (
         <div className={data.cssClass} id={data.cssClass}>
             <div className='head'>
                 <h2>{data.title}</h2>
                 <div className='error'></div>
+                <button className="fill" onClick={handleFillForm}>Fill Form</button>
+                <button className="clear" onClick={handleClearForm}>Clear Form</button>
             </div>
             {data.inputs.map((input) => (
                 <div className={input.cssClass}>

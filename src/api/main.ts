@@ -1,7 +1,7 @@
 import express from 'express';
 import type { bookingFormFields } from '@/types';
 
-const TIME_NOW = () => new Date().toLocaleTimeString('en-US', { timeZone: 'America/Chicago' });
+const TIME_NOW = () => new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' });
 
 const app = express();
 const PORT = process.env.API_PORT ?? 9999;

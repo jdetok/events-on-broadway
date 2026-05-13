@@ -133,13 +133,18 @@ button:hover {
 .request-booking > .head {
     grid-area: head;
     display: grid;
-    grid-template-areas: "h . e";
+    grid-template-areas: "h e f c";
 }
 
 .request-booking > .head > h2 {
     grid-area: h;
 }
-
+.request-booking > .head > .fill {
+    grid-area: f;
+}
+.request-booking > .head > .clear {
+    grid-area: c;
+}
 .request-booking > .head > .error {
     display: none;
     grid-area: e;
