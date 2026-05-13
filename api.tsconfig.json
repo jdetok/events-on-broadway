@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+      "target": "ES2022",
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext",
+      "jsx": "preserve",
+      "outDir": "./dist/api",
+      "types": ["node"]
+    },
+    "include": ["./src/api"]
+}
