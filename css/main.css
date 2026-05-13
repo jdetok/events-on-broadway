@@ -313,8 +313,8 @@ button:hover {
 
 .bigimg-inner > .btn-row {
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
-    grid-template-areas: "prev next close";
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-areas: "close prev next";
     margin: var(--pdg-cmp) 0;
     pointer-events: all;
 }
