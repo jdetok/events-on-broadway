@@ -133,6 +133,7 @@ button:hover {
 .request-booking > .head {
     grid-area: head;
     display: grid;
+    gap: 0.5rem;
     grid-template-areas: "h e f c";
 }
 
