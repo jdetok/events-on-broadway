@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import type { formData } from '@/types';
+import type { bookingFormFields, formData } from '@/types';
+import { URL_BOOKINGFORM } from '@/consts';
 
 export default function RequestBooking(data: formData) {
     const [values, setValues] = useState<Record<string, string>>(
@@ -10,7 +11,7 @@ export default function RequestBooking(data: formData) {
         setValues((prev) => ({ ...prev, [cssClass]: value }));
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         console.log(values);
         const path = `.${data.cssClass} > .head > .error`;
         const errDiv = document.querySelector(path) as HTMLDivElement;
@@ -19,12 +20,17 @@ export default function RequestBooking(data: formData) {
         let txt: string; 
         if (Object.values(values).some((v) => v === "")) {
             errDiv.style.display = 'block';
-            txt = 'All form inputs must be populated.';
+            errDiv.textContent = 'All form inputs must be populated.';
         } else {
             errDiv.style.display = 'none';
-            txt = '';
+            errDiv.textContent = '';
+            const resp = await fetch(URL_BOOKINGFORM, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', },
+                body: JSON.stringify(values as bookingFormFields),
+            });
+            console.log(resp);
         }
-        errDiv.textContent = txt;
     }
 
     return (

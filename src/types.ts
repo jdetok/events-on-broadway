@@ -30,3 +30,12 @@ export type formData = {
     cssClass: string;
     inputs: formInput[];
 };
+
+export type bookingFormFields = {
+    name: string;
+    mail: string;
+    num: string;
+    date1: string;
+    date2: string;
+    desc: string;
+};

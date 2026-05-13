@@ -8,5 +8,5 @@
       "outDir": "./dist/api",
       "types": ["node"]
     },
-    "include": ["./src/api"]
+    "include": ["./src/api", "./src/*.ts"]
 }
