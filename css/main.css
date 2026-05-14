@@ -219,6 +219,7 @@ button:hover {
     grid-area: map;
     border: var(--bdr-cmp);
     border-radius: var(--bdr-rad);
+    height: 700px;
 }
 
 .biz-hours {
@@ -266,9 +267,6 @@ button:hover {
     width: 100%;
     height: fit-content;
     margin: 0 auto;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-radius: var(--bdr-rad);
 }
 
 .gallery > img {

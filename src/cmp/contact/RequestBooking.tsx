@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { bookingFormFields, formData } from '@/types';
-import { URL_BOOKINGFORM, errBorder, setMsgDiv, clearMsgDiv } from '@/consts';
+import { URL_BOOKINGFORM, errorFieldBorder, errorMsgBorder, successMsgBorder, setMsgDiv, clearMsgDiv, formUnknownErrorMsg, formEmptyFieldErrorMsg, formSuccessMsg } from '@/consts';
 
 export default function RequestBooking(data: formData) {
     const [values, setValues] = useState<Record<string, string>>(
@@ -24,7 +24,7 @@ export default function RequestBooking(data: formData) {
         const emptyKeys = Object.entries(values).filter(([, v]) => v === '').map(([k]) => k);
 
         if (emptyKeys.length > 0) {
-            setMsgDiv(errDiv, '4px solid red', 'Fill out each field to submit');
+            setMsgDiv(errDiv, errorMsgBorder, formEmptyFieldErrorMsg);
             setInvalidFields(new Set(emptyKeys));
         } else {
             clearMsgDiv(errDiv);
@@ -36,13 +36,13 @@ export default function RequestBooking(data: formData) {
                     body: JSON.stringify(values as bookingFormFields),
                 });
                 if (resp === null || resp.status !== 201) {
-                    setMsgDiv(errDiv, '4px solid red', 'Something went wrong, please try again');
+                    setMsgDiv(errDiv, errorMsgBorder, formUnknownErrorMsg);
                 } else {
-                    setMsgDiv(errDiv, '4px solid green', 'Booking request submitted!');
+                    setMsgDiv(errDiv, successMsgBorder, formSuccessMsg);
                 }
             } catch (err) {
-                setMsgDiv(errDiv, '4px solid red', 'Something went wrong, please try again');
-                console.error('error inserting form data into mongo:', err);
+                setMsgDiv(errDiv, errorMsgBorder, formUnknownErrorMsg);
+                console.error(err);
             }
         }
     }
@@ -94,7 +94,7 @@ export default function RequestBooking(data: formData) {
                             placeholder={input.placeholder}
                             value={values[input.cssClass]}
                             onChange={(e) => handleChange(input.cssClass, e.target.value)}
-                            style={invalidFields.has(input.cssClass) ? { border: errBorder } : {}}
+                            style={invalidFields.has(input.cssClass) ? { border: errorFieldBorder } : {}}
                         /> : <input
                             key={input.cssClass}
                             id={input.cssClass}
@@ -102,7 +102,7 @@ export default function RequestBooking(data: formData) {
                             placeholder={input.placeholder}
                             value={values[input.cssClass]}
                             onChange={(e) => handleChange(input.cssClass, e.target.value)}
-                            style={invalidFields.has(input.cssClass) ? { border: errBorder } : {}}
+                            style={invalidFields.has(input.cssClass) ? { border: errorFieldBorder } : {}}
                         />
                     }
                 </div>  

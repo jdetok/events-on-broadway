@@ -1,5 +1,4 @@
 import express from 'express';
-import type { bookingFormFields } from '@/types';
 import { db } from './db';
 
 const TIME_NOW = () => new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' });
