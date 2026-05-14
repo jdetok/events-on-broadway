@@ -16,3 +16,14 @@ export const mainSiteButtons: buttonData[] = [
 export const errBorder = '2.5px dashed red';
 
 export const URL_BOOKINGFORM = `/api/booking/submit`; 
+
+export const setMsgDiv = (div: HTMLDivElement, borderStyle: string, txt: string) => {
+    div.style.display = 'block';
+    div.style.border = borderStyle;
+    div.textContent = txt;
+}
+
+export const clearMsgDiv = (div: HTMLDivElement) => {
+    div.style.display = 'none';
+    div.textContent = '';
+}

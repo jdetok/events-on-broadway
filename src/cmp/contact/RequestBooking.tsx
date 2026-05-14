@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { bookingFormFields, formData } from '@/types';
-import { URL_BOOKINGFORM, errBorder } from '@/consts';
+import { URL_BOOKINGFORM, errBorder, setMsgDiv, clearMsgDiv } from '@/consts';
 
 export default function RequestBooking(data: formData) {
     const [values, setValues] = useState<Record<string, string>>(
@@ -11,7 +11,7 @@ export default function RequestBooking(data: formData) {
 
     const handleChange = (cssClass: string, value: string) => {
         setValues((prev) => ({ ...prev, [cssClass]: value }));
-         setInvalidFields((prev) => {
+        setInvalidFields((prev) => {
             const next = new Set(prev);
             next.delete(cssClass);
             return next;
@@ -19,28 +19,31 @@ export default function RequestBooking(data: formData) {
     }
 
     const handleSubmit = async () => {
-        console.log(values);
         const path = `.${data.cssClass} > .head > .error`;
         const errDiv = document.querySelector(path) as HTMLDivElement;
-
-        const emptyKeys = Object.entries(values)
-            .filter(([, v]) => v === '')
-            .map(([k]) => k);
+        const emptyKeys = Object.entries(values).filter(([, v]) => v === '').map(([k]) => k);
 
         if (emptyKeys.length > 0) {
-            errDiv.style.display = 'block';
-            errDiv.textContent = 'All form inputs must be populated.';
+            setMsgDiv(errDiv, '4px solid red', 'Fill out each field to submit');
             setInvalidFields(new Set(emptyKeys));
         } else {
-            errDiv.style.display = 'none';
-            errDiv.textContent = '';
+            clearMsgDiv(errDiv);
             setInvalidFields(new Set());
-            const resp = await fetch(URL_BOOKINGFORM, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', },
-                body: JSON.stringify(values as bookingFormFields),
-            });
-            console.log(resp);
+            try {
+                const resp = await fetch(URL_BOOKINGFORM, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', },
+                    body: JSON.stringify(values as bookingFormFields),
+                });
+                if (resp === null || resp.status !== 201) {
+                    setMsgDiv(errDiv, '4px solid red', 'Something went wrong, please try again');
+                } else {
+                    setMsgDiv(errDiv, '4px solid green', 'Booking request submitted!');
+                }
+            } catch (err) {
+                setMsgDiv(errDiv, '4px solid red', 'Something went wrong, please try again');
+                console.error('error inserting form data into mongo:', err);
+            }
         }
     }
 
