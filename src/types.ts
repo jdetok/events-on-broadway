@@ -6,17 +6,19 @@ export type buttonData = {
     onClick?: MouseEventHandler | (() => void) | undefined;
 }
 
+export type addrData = {
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+};
+
 export type contactData = {
     name: string;
     email: string;
     phone: string;
     hours: string[][];
-    addr: {
-        street: string;
-        city: string;
-        state: string;
-        zip: string;
-    };
+    addr: addrData;
 };
 
 export type formInput = {

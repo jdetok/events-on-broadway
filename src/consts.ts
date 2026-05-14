@@ -1,13 +1,19 @@
 import { data } from '../data/eventsOnBroadwayData.json';
-import type { buttonData, contactData, formData } from '@/types';
+import type { addrData, buttonData, contactData, formData } from '@/types';
 
 // objects from json data config file to directly import in modules
 export const CONTACT = data.contact as contactData;
+export const ADDR = data.contact.addr as addrData;
 export const FORM = data.form as formData;
-export const HOURS = data.contact.hours as [string, string][];
+export const BIZ_HOURS = data.contact.hours as [string, string][];
 export const ICON_SRC = data.logoSrc;
 export const TITLE = data.siteTitle;
 export const SUBTITLE = data.subTitle;
+
+// css classes
+export const cssContact = 'contact';
+export const cssStreetAddr = 'street-addr';
+export const cssEmailPhone = 'email-phone';
 
 // scroll to an element, but with offset of y space on top
 const scrollTo = (selector: string, offset = 40) => {
@@ -20,7 +26,8 @@ const scrollTo = (selector: string, offset = 40) => {
 export const mainSiteButtons: buttonData[] = [
     {cssClass: 'btn-home', text: 'Home', onClick: () => { window.scrollTo({top: 0, behavior: 'smooth'})}},
     { cssClass: 'btn-gallery', text: 'Gallery', onClick: () => scrollTo('.gallery') },
-    {cssClass: 'btn-contact', text: 'Contact', onClick: () => scrollTo('.request-booking')},
+    {cssClass: 'btn-contact', text: 'Contact', onClick: () => scrollTo('.contact')},
+    {cssClass: 'btn-request', text: 'Book', onClick: () => scrollTo('.request-booking')},
     {cssClass: 'btn-loc', text: 'Location', onClick: () => scrollTo('.map')},
 ];
 

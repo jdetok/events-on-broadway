@@ -1,26 +1,44 @@
 import type { ReactNode } from 'react';
-import { CONTACT, HOURS } from '@/consts';
+import { BIZ_HOURS, CONTACT, ADDR, cssContact, cssEmailPhone, cssStreetAddr } from '@/consts';
+
+function BizHours({ cssClass, children }: { cssClass: string, children?: ReactNode }) {
+    return (<>
+        { children }
+        {BIZ_HOURS.map((h: [string, string], i): ReactNode => (
+            <ul key={`${cssClass}-${i}`}>
+                <li className='left'>{h[0]}</li><li className='right'>{h[1]}</li>
+            </ul>
+        ))}
+    </>)
+}
+
+function StreetAddr({ cssClass }: { cssClass?: string}) {
+    return (
+        <div className={cssClass}>
+            <p className="bolder">{CONTACT.name}</p>
+            <p>{ADDR.street}</p>
+            <p>{ADDR.city}, {ADDR.state} {ADDR.zip}</p>
+        </div>
+    )
+}
+
+function EmailPhone({ cssClass }: { cssClass?: string}) {
+    return (
+        <div className={cssClass}>
+            <p>{CONTACT.email}</p>
+            <p>{CONTACT.phone}</p>
+        </div>
+    )
+}
 
 export default function Contact({ children }: { children?: ReactNode}) {
     return (
-        <div className="biz-hours">
+        <div className={cssContact}>
             {children}
-            <h2>Business Hours:</h2>
-            {HOURS.map((h: [string, string], i): ReactNode => (
-                <ul key={`biz-hour-${i}`}>
-                    <li className='left'>{h[0]}</li><li className='right'>{h[1]}</li>
-                </ul>
-            ))}
+            <BizHours cssClass={cssContact}><h2>Business Hours:</h2></BizHours>
             <h2>Contact Us:</h2>
-            <div className="bold">
-                <p>{CONTACT.email}</p>
-                <p>{CONTACT.phone}</p>
-            </div><br></br>
-            <div className="ital">
-                <p className="bolder">{CONTACT.name}</p>
-                <p>{CONTACT.addr.street}</p>
-                <p>{CONTACT.addr.city}, {CONTACT.addr.state} {CONTACT.addr.zip}</p>
-            </div>
+            <EmailPhone cssClass={cssEmailPhone} />
+            <StreetAddr cssClass={cssStreetAddr}/>
         </div>
     )
 }

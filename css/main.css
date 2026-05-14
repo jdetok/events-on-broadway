@@ -19,7 +19,8 @@
 
 body {
     background-color: var(--bg);
-    font-family: sans-serif;
+    font-family: monospace;
+    /* font-family: sans-serif; */
 }
 
 button {
@@ -44,7 +45,7 @@ button:hover {
         "icon title btns"
         "header header header" 
         "bgnd bgnd bgnd"
-        "request request hours"
+        "request request contact"
         "gallery gallery gallery"
         "map map map"
     ;
@@ -76,6 +77,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: var(--pdg-cmp);
 }
 .title h1 {
@@ -196,6 +198,7 @@ button:hover {
     grid-area: submit;
     font-size: 1.2rem;
 }
+
 .contact {
     grid-area: contact;
     border: var(--bdr-cmp);
@@ -203,33 +206,7 @@ button:hover {
     padding: var(--pdg-cmp);
 }
 
-.contact .bolder {
-    font-weight: bolder;
-}
-
-.contact .bold {
-    font-weight: bold;
-}
-
-.contact .ital {
-    font-style: italic;
-}
-
-.map {
-    grid-area: map;
-    border: var(--bdr-cmp);
-    border-radius: var(--bdr-rad);
-    height: 700px;
-}
-
-.biz-hours {
-    grid-area: hours;
-    border: var(--bdr-cmp);
-    border-radius: var(--bdr-rad);
-    padding: var(--pdg-cmp);
-}
-
-.biz-hours > ul {
+.contact > ul {
     color: var(--btn-text-color);
     background-color: var(--btn-color);
     border: var(--bdr-cmp);
@@ -245,18 +222,37 @@ button:hover {
     margin-bottom: 1rem;
 }
 
-.biz-hours > ul > li {
+.contact > ul > li {
     width: 100%;
     font-size: 1.1rem;
 }
 
-.biz-hours > ul > li.left {
+.contact > ul > li.left {
     text-align: left;
     font-weight: bold;
 }
 
-.biz-hours > ul > li.right {
+.contact > ul > li.right {
     text-align: right;
+}
+
+.contact .bolder {
+    font-weight: bolder;
+}
+
+.contact .email-phone {
+    font-weight: bold;
+}
+
+.contact .street-addr {
+    font-style: italic;
+}
+
+.map {
+    grid-area: map;
+    border: var(--bdr-cmp);
+    border-radius: var(--bdr-rad);
+    height: 700px;
 }
 
 .gallery {
