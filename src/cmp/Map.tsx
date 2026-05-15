@@ -1,4 +1,4 @@
-export default function GoogleMapsIFrame() {
+export default function Map() {
     return (
         <iframe
             className="map"

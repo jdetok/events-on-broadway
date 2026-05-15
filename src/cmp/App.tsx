@@ -1,11 +1,11 @@
-import Icon from "./image/Icon";
-import Title from "./header/Title";
+import Icon from "./Icon";
+import Title from "./Title";
 import ButtonRow from "./ButtonRow";
 import Gallery from "./gallery/Gallery";
-import Contact from "./contact/Contact";
-import Background from "./image/Background";
-import GoogleMapsIFrame from "./GoogleMapsIFrame";
-import RequestBooking from "./contact/RequestBooking";
+import Contact from "./Contact";
+import Background from "./Background";
+import Map from "./Map";
+import RequestBooking from "./RequestBooking";
 import { FORM, TITLE, SUBTITLE, ICON_SRC, mainSiteButtons } from "@/consts";
 
 export default function App() {
@@ -18,7 +18,7 @@ export default function App() {
             <Gallery />
             <RequestBooking {...FORM} />
             <Contact />
-            <GoogleMapsIFrame />
+            <Map />
         </main>
     )
 }
