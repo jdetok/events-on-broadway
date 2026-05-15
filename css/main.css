@@ -1,5 +1,7 @@
 * {
     --global-padding: 0.025rem;
+    --title-h1-size: 4rem;
+    --title-h2-size: 1.8rem;
     --bdr-rad: 1rem;
     --bdr-cmp: 2px solid black;
     --bdr-form: 1px solid rgba(0, 0, 0, 0.5);
@@ -9,7 +11,42 @@
     --btn-color-hover: rgba(47, 8, 73, 0.65);
     --btn-text-color: rgba(0, 0, 0, 0.8);
     --btn-text-color-hover: rgba(227, 221, 173, 0.917);
+    --btn-font-size: 0.9rem;
+    --columns-desktop: 1fr 2fr 1fr;
+    --grid-desktop: 
+        "icon title btns"
+        "bgnd bgnd bgnd"
+        "request request contact"
+        "gallery gallery gallery"
+        "map map map"
+    ;
+    --columns-phone: 1fr;
+    --grid-phone: 
+        "btns"
+        "title"
+        "header" 
+        "gallery"
+        "request"
+        "contact"
+        "map"
+    ;
 }
+
+@media (max-width: 1450px) {
+    * {
+        --title-h1-size: 2.5rem;
+        --title-h2-size: 1.4rem;
+    }
+}
+
+@media (max-width: 1150px) {
+    * {
+        --title-h1-size: 1.7rem;
+        --title-h2-size: 1.1rem;
+        --btn-font-size: 0.6rem;
+    }
+}
+
 /* reduces built in browser padding */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -27,7 +64,7 @@ button {
     border: var(--bdr-cmp);
     border-radius: var(--bdr-rad);
     padding: 5px 12px;
-    font-size: 0.9rem;
+    font-size: var(--btn-font-size);
     font-weight: bold;
     color: var(--btn-text-color);
     background-color: var(--btn-color);
@@ -40,18 +77,19 @@ button:hover {
 
 .app {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-areas: 
-        "icon title btns"
-        "header header header" 
-        "bgnd bgnd bgnd"
-        "request request contact"
-        "gallery gallery gallery"
-        "map map map"
-    ;
+    grid-template-columns: var(--columns-desktop);
+    grid-template-areas: var(--grid-desktop);
     gap: 0.5rem;
     width: 99%;
     margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+    .app { 
+        grid-template-areas: var(--grid-phone); 
+        grid-template-columns: var(--columns-phone);
+    }
+    .background { display: none; }
 }
 
 .header {
@@ -80,12 +118,9 @@ button:hover {
     justify-content: center;
     padding: var(--pdg-cmp);
 }
-.title h1 {
-    font-size: 50px;
-}
-.title h2 {
-    font-size: 26px;
-}
+.title h1 { font-size: var(--title-h1-size); }
+.title h2 { font-size: var(--title-h2-size); }
+
 .icon {
     grid-area: icon;
     border-radius: var(--bdr-rad);
@@ -100,6 +135,8 @@ button:hover {
     top: 0;
     justify-content: flex-end;
 }
+
+/* form component for requesting to book an event */
 .request-booking {
     grid-area: request;
     display: grid;
@@ -118,29 +155,51 @@ button:hover {
     width: 100%;
     max-width: 100%;
 }
-.request-booking > div > .input-label {
-    margin: 0 0 5px 2px;
-}
-.request-booking > div > input {
-    width: 100%;
-    border: var(--bdr-form);
-    border-radius: var(--bdr-rad);
-    padding: var(--pdg-cmp);
-}
+
+/* form fields */
+.request-booking > .mail  { grid-area: mail; }
+.request-booking > .name  { grid-area: name; }
+.request-booking > .date1 { grid-area: date1; }
+.request-booking > .date2 { grid-area: date2; }
+.request-booking > .date3 { grid-area: date3; }
+.request-booking > .num   { grid-area: num; }
+.request-booking > .desc  { grid-area: desc; }
+
 .request-booking > * {
     border: var(--bdr-form);
     border-radius: var(--bdr-rad);
     padding: var(--pdg-cmp);
 }
+
+/* styling for inputs/textareas and their labels */
+.request-booking > div > .input-label {
+    margin: 0 0 5px 2px;
+}
+.request-booking > div > input, textarea {
+    width: 100%;
+    border: var(--bdr-form);
+    border-radius: var(--bdr-rad);
+    padding: var(--pdg-cmp);
+}
+.request-booking > div > textarea {
+    height: 100px;
+    vertical-align: top;
+    max-width: 100%;
+    resize: none;
+}
+
+/* form header row for title, message (hidden default), buttons, etc */
 .request-booking > .head {
     grid-area: head;
     display: grid;
     gap: 0.5rem;
-    grid-template-areas: "h e f c";
+    grid-template-areas: "h m f c";
 }
 
 .request-booking > .head > h2 {
     grid-area: h;
+    margin: auto 0;
+    font-size: 1.5rem;
 }
 .request-booking > .head > .fill {
     grid-area: f;
@@ -148,55 +207,30 @@ button:hover {
 .request-booking > .head > .clear {
     grid-area: c;
 }
-.request-booking > .head > .error {
+
+/* message after submitting form (error or success) */
+.request-booking > .head > .msg {
+    grid-area: m;
     display: none;
-    grid-area: e;
     border: 4px solid red;
     border-radius: var(--bdr-rad);
     padding: var(--pdg-cmp);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    font-style: italic;
 }
 
-.request-booking > .mail {
-    grid-area: mail;
-}
-
-.request-booking > .name {
-    grid-area: name;
-}
-
-.request-booking > .date1 {
-    grid-area: date1;
-}
-
-.request-booking > .date2 {
-    grid-area: date2;
-}
-
-.request-booking > .date3 {
-    grid-area: date3;
-}
-
-.request-booking > .num {
-    grid-area: num;
-}
-.request-booking > .desc {
-    grid-area: desc;
-}
-.request-booking > .desc > textarea {
-    height: 100px;
-    border-radius: var(--bdr-rad);
-    padding: var(--pdg-cmp);
-    vertical-align: top;
-    width: 100%;
-    max-width: 100%;
-    resize: none;
-}
 .request-booking > .submit {
     grid-area: submit;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+}
+
+@media (max-width: 800px) {
+    .request-booking > .head > h2 {
+        font-size: 1.1rem;
+    }
+    .request-booking > .head > .msg {
+        font-size: 1.1rem;
+    }
 }
 
 .contact {
@@ -204,6 +238,11 @@ button:hover {
     border: var(--bdr-cmp);
     border-radius: var(--bdr-rad);
     padding: var(--pdg-cmp);
+    font-size: 1.1rem;
+}
+
+.contact h2 {
+    font-size: 1.6rem;
 }
 
 .contact > ul {
@@ -222,11 +261,6 @@ button:hover {
     margin-bottom: 1rem;
 }
 
-.contact > ul > li {
-    width: 100%;
-    font-size: 1.1rem;
-}
-
 .contact > ul > li.left {
     text-align: left;
     font-weight: bold;
@@ -242,10 +276,7 @@ button:hover {
 
 .contact .email-phone {
     font-weight: bold;
-}
-
-.contact .street-addr {
-    font-style: italic;
+    margin-bottom: 1.2rem;
 }
 
 .map {

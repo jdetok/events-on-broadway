@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { bookingFormFields, formData } from '@/types';
-import { URL_BOOKINGFORM, errorFieldBorder, errorMsgBorder, successMsgBorder, setMsgDiv, clearMsgDiv, formUnknownErrorMsg, formEmptyFieldErrorMsg, formSuccessMsg } from '@/consts';
+import { URL_BOOKINGFORM, errorFieldBorder, errorMsgBorder, successMsgBorder, setMsgDiv, clearMsgDiv, formUnknownErrorMsg, formEmptyFieldErrorMsg, formSuccessMsg, cssFormMsgDiv, cssFormFillBtn, cssFormClearBtn, cssFormInputLabels } from '@/consts';
 
 export default function RequestBooking(data: formData) {
     const [values, setValues] = useState<Record<string, string>>(
@@ -19,7 +19,7 @@ export default function RequestBooking(data: formData) {
     }
 
     const handleSubmit = async () => {
-        const path = `.${data.cssClass} > .head > .error`;
+        const path = `.${data.cssClass} > .head > .${cssFormMsgDiv}`;
         const errDiv = document.querySelector(path) as HTMLDivElement;
         const emptyKeys = Object.entries(values).filter(([, v]) => v === '').map(([k]) => k);
 
@@ -79,13 +79,13 @@ export default function RequestBooking(data: formData) {
         <div className={data.cssClass} id={data.cssClass}>
             <div className='head'>
                 <h2>{data.title}</h2>
-                <div className='error'></div>
-                <button className="fill" onClick={handleFillForm}>Fill Form</button>
-                <button className="clear" onClick={handleClearForm}>Clear Form</button>
+                <div className={cssFormMsgDiv}></div>
+                <button className={cssFormFillBtn} onClick={handleFillForm}>Fill Form</button>
+                <button className={cssFormClearBtn} onClick={handleClearForm}>Clear Form</button>
             </div>
             {data.inputs.map((input, i) => (
                 <div key={`input-container-${i}`} className={input.cssClass}>
-                    <div className="input-label">{input.placeholder}:</div>
+                    <div className={cssFormInputLabels}>{input.placeholder}:</div>
                     {input.inputType === 'textarea'
                         ? <textarea
                             key={input.cssClass}

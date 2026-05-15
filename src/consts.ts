@@ -14,6 +14,10 @@ export const SUBTITLE = data.subTitle;
 export const cssContact = 'contact';
 export const cssStreetAddr = 'street-addr';
 export const cssEmailPhone = 'email-phone';
+export const cssFormMsgDiv = 'msg';
+export const cssFormClearBtn = 'clear';
+export const cssFormFillBtn = 'fill';
+export const cssFormInputLabels = 'input-label';
 
 // scroll to an element, but with offset of y space on top
 const scrollTo = (selector: string, offset = 40) => {
