@@ -11,6 +11,9 @@ export const ICON_SRC = data.logoSrc;
 export const TITLE = data.siteTitle;
 export const SUBTITLE = data.subTitle;
 
+// start image for gallery list
+export const FIRST_IMAGE = 'horiz.png';
+
 // css classes
 export const cssContact = 'contact';
 export const cssStreetAddr = 'street-addr';

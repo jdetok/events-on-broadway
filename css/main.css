@@ -326,6 +326,7 @@ button:hover {
     pointer-events: all;
 }
 
+/* highlighted image in vertical gallery */
 .bigimg-inner > img {
     border: 1px solid white;
     border-radius: var(--bdr-rad);
@@ -334,6 +335,12 @@ button:hover {
     height: 80vh;
     object-fit: contain;
     pointer-events: all;
+}
+
+/* highlighted image in horizontal gallery */
+.gallery-horiz > .bigimg > .bigimg-inner > img {
+    max-height: 90vh;
+    max-height: 60vh;
 }
 
 .bigimg-overlay {
