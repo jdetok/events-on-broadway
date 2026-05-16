@@ -282,7 +282,7 @@ button:hover {
 }
 
 .gallery-horiz {
-    overflow: auto;
+    overflow: hidden; 
     grid-area: bgnd;
     display: flex;
     flex-direction: row;
