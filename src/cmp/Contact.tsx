@@ -15,7 +15,7 @@ function BizHours({ cssClass, children }: { cssClass: string, children?: ReactNo
 function StreetAddr({ cssClass }: { cssClass?: string}) {
     return (
         <div className={cssClass}>
-            <p className="bolder">{CONTACT.name}</p>
+            <p className="bolder"><b>{CONTACT.name}</b></p>
             <p>{ADDR.street}</p>
             <p>{ADDR.city}, {ADDR.state} {ADDR.zip}</p>
         </div>
@@ -35,8 +35,10 @@ export default function Contact({ children }: { children?: ReactNode}) {
     return (
         <div className={cssContact}>
             {children}
-            <BizHours cssClass={cssContact}><h2>Business Hours:</h2></BizHours>
-            <h2>Contact Us:</h2>
+            <BizHours cssClass={cssContact}>
+                <h2 className='sect-ttl'>Business Hours:</h2>
+            </BizHours>
+            <h2 className='sect-ttl'>Contact Us:</h2>
             <EmailPhone cssClass={cssEmailPhone} />
             <StreetAddr cssClass={cssStreetAddr}/>
         </div>

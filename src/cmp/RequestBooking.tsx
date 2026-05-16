@@ -94,7 +94,7 @@ export default function RequestBooking(data: formData) {
         <div className={data.cssClass} id={data.cssClass}>
             {/* TOP ROW - FORM TITLE, FILL/CLEAR BUTTONS, MSGDIV */}
             <div className='head'>
-                <h2>{data.title}</h2>
+                <h2 className='ttl'>{data.title}</h2>
                 <div className={cssFormMsgDiv}></div>
                 <button className={cssFormFillBtn} onClick={handleFillForm}>Fill Form</button>
                 <button className={cssFormClearBtn} onClick={handleClearForm}>Clear Form</button>

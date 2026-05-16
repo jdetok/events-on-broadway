@@ -22,7 +22,7 @@
         },
         "form": {
             "title": "Request to Book an Event",
-            "cssClass": "request-booking",
+            "cssClass": "book",
             "inputs": [
                 {
                     "inputType": "text",

@@ -126,7 +126,7 @@ button:hover {
 }
 
 /* form component for requesting to book an event */
-.request-booking {
+.book {
     grid-area: request;
     display: grid;
     grid-template-areas:
@@ -146,60 +146,37 @@ button:hover {
 }
 
 /* form fields */
-.request-booking > .mail  { grid-area: mail; }
-.request-booking > .name  { grid-area: name; }
-.request-booking > .date1 { grid-area: date1; }
-.request-booking > .date2 { grid-area: date2; }
-.request-booking > .date3 { grid-area: date3; }
-.request-booking > .num   { grid-area: num; }
-.request-booking > .desc  { grid-area: desc; }
+.book > .mail  { grid-area: mail; }
+.book > .name  { grid-area: name; }
+.book > .date1 { grid-area: date1; }
+.book > .date2 { grid-area: date2; }
+.book > .date3 { grid-area: date3; }
+.book > .num   { grid-area: num; }
+.book > .desc  { grid-area: desc; }
 
-.request-booking > * {
+.book > * {
     border: var(--bdr-form);
     border-radius: var(--bdr-rad);
     padding: var(--pdg-cmp);
-}
-
-/* styling for inputs/textareas and their labels */
-.request-booking > div > .input-label {
-    margin: 0 0 5px 2px;
-}
-.request-booking > div > input, textarea {
-    width: 100%;
-    border: var(--bdr-form);
-    border-radius: var(--bdr-rad);
-    padding: var(--pdg-cmp);
-}
-.request-booking > div > textarea {
-    height: 100px;
-    vertical-align: top;
-    max-width: 100%;
-    resize: none;
 }
 
 /* form header row for title, message (hidden default), buttons, etc */
-.request-booking > .head {
+.book > .head {
     grid-area: head;
     display: grid;
     gap: 0.5rem;
-    grid-template-areas: "h m f c";
+    grid-template-areas: "ttl msg fill clear";
 }
 
-.request-booking > .head > h2 {
-    grid-area: h;
+.book > .head > .ttl {
+    grid-area: ttl;
     margin: auto 0;
     font-size: 1.5rem;
 }
-.request-booking > .head > .fill {
-    grid-area: f;
-}
-.request-booking > .head > .clear {
-    grid-area: c;
-}
 
 /* message after submitting form (error or success) */
-.request-booking > .head > .msg {
-    grid-area: m;
+.book > .head > .msg {
+    grid-area: msg;
     display: none;
     border: 4px solid red;
     border-radius: var(--bdr-rad);
@@ -207,17 +184,38 @@ button:hover {
     font-size: 1.2rem;
     font-weight: bold;
 }
+/* fill and clear buttons */
+.book > .head > .fill { grid-area: fill; }
+.book > .head > .clear { grid-area: clear; }
 
-.request-booking > .submit {
+/* styling for inputs/textareas and their labels */
+.book > div > .input-label {
+    margin: 0 0 5px 2px;
+}
+
+.book > div > input, textarea {
+    width: 100%;
+    border: var(--bdr-form);
+    border-radius: var(--bdr-rad);
+    padding: var(--pdg-cmp);
+}
+.book > div > textarea {
+    height: 100px;
+    vertical-align: top;
+    max-width: 100%;
+    resize: none;
+}
+
+.book > .submit {
     grid-area: submit;
     font-size: 1.4rem;
 }
 
 @media (max-width: 800px) {
-    .request-booking > .head > h2 {
+    .book > .head > h2 {
         font-size: 1.1rem;
     }
-    .request-booking > .head > .msg {
+    .book > .head > .msg {
         font-size: 1.1rem;
     }
 }
@@ -230,7 +228,7 @@ button:hover {
     font-size: 1.1rem;
 }
 
-.contact h2 {
+.sect-ttl {
     font-size: 1.6rem;
 }
 
@@ -242,12 +240,8 @@ button:hover {
     display: grid;
     grid-template-columns: 1fr 2fr;
     list-style-type: none;
-    gap: 2rem;
     padding: var(--pdg-cmp);
-    max-width: 100%;
-    vertical-align: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
 }
 
 .contact > ul > li.left {
@@ -259,12 +253,7 @@ button:hover {
     text-align: right;
 }
 
-.contact .bolder {
-    font-weight: bolder;
-}
-
 .contact .email-phone {
-    font-weight: bold;
     margin-bottom: 1.2rem;
 }
 
@@ -272,7 +261,8 @@ button:hover {
     grid-area: map;
     border: var(--bdr-cmp);
     border-radius: var(--bdr-rad);
-    height: 700px;
+    height: 35vh;
+    /* height: 700px; */
 }
 
 .gallery-vert {
