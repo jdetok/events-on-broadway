@@ -1,8 +1,8 @@
-export default function Title({ text, subText }: { text: string, subText: string}) {
+export default function Title({ ttl, subTtl }: { ttl: string, subTtl: string}) {
     return (
         <div className="title">
-            <h1>{text}</h1>
-            <h2>{subText}</h2>
+            <h1>{ttl}</h1>
+            <h2>{subTtl}</h2>
         </div>
     )
 }

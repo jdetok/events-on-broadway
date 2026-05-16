@@ -1,13 +1,15 @@
-import BigImg from "./BigImg";
-
 import Img from "./Img";
+import BigImg from "./BigImg";
 import { useState, useEffect } from "react";
 
-export default function Gallery() {
+export default function Gallery({ type }: { type: 'vert' | 'horiz'}) {
     const cssClass = Gallery.name.toLowerCase();
     const [selected, setSelected] = useState<string | null>(null);
     
-    const images = Object.values(import.meta.glob('../../../data/img/gallery/*.png', { eager: true }));
+    const vertImages = Object.values(import.meta.glob('../../../data/img/gallery/vert/*.png', { eager: true }));
+    const horizImages = Object.values(import.meta.glob('../../../data/img/gallery/horiz/*.png', { eager: true }));
+    const images = type === 'vert' ? vertImages : horizImages;
+
     const currentIdx = images.findIndex((m: any) => m.default === selected);
 
     const len = images.length;
@@ -25,7 +27,7 @@ export default function Gallery() {
     }, [selected]);
 
     return (
-        <div className={cssClass}>
+        <div className={`${cssClass}-${type}`}>
             {selected && (<>
                 <div className="bigimg-overlay" onClick={() => setSelected(null)} />
                 <BigImg src={selected} onClick={() => setSelected(null)} onPrev={showPrev} onNext={showNext} />

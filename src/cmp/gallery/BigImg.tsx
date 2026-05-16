@@ -1,11 +1,6 @@
 
-import type { imgProps } from './Img';
+import type { bigImgProps } from '@/types';
 import ButtonRow from '../ButtonRow';
-
-type bigImgProps = imgProps & {
-    onPrev?: () => void;
-    onNext?: () => void;
-}
 
 export default function BigImg(p: bigImgProps) {
     return (

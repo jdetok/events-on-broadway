@@ -1,5 +1,5 @@
-import type { buttonData } from "@/types";
 import Button from "./Button";
+import type { buttonData } from "@/types";
 import type { MouseEventHandler } from "react";
 
 export default function ButtonRow({ buttons }: { buttons: buttonData[] }) {

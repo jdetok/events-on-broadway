@@ -1,10 +1,17 @@
-import type { MouseEventHandler } from "react";
+import type { MouseEventHandler, ReactNode } from 'react';
 
 export type buttonData = {
     cssClass: string;
     text: string;
     onClick?: MouseEventHandler | (() => void) | undefined;
-}
+};
+
+export type buttonProps = {
+    buttonType?: 'primary' | 'secondary';
+    cssClass?: string;
+    onClick?: MouseEventHandler;
+    children?: ReactNode;
+};
 
 export type addrData = {
     street: string;
@@ -40,4 +47,16 @@ export type bookingFormFields = {
     date1: string;
     date2: string;
     desc: string;
+};
+
+export type imgProps = {
+    src: string;
+    alt?: string;
+    cssClass?: string;
+    onClick?: MouseEventHandler;
+};
+
+export type bigImgProps = imgProps & {
+    onPrev?: () => void;
+    onNext?: () => void;
 };

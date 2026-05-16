@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react';
 import { BIZ_HOURS, CONTACT, ADDR, cssContact, cssEmailPhone, cssStreetAddr } from '@/consts';
+import type { ReactNode } from 'react';
 
 function BizHours({ cssClass, children }: { cssClass: string, children?: ReactNode }) {
     return (<>

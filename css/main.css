@@ -99,17 +99,6 @@ button:hover {
     grid-template-areas: "icon title menu";
 }
 
-.background {
-    grid-area: bgnd;
-    border: var(--bdr-cmp);
-    border-radius: var(--bdr-rad);
-    background-image: url('../data/img/horiz.png');
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-    height: 75vh;
-}
-
 .title {
     grid-area: title;
     display: flex;
@@ -286,7 +275,7 @@ button:hover {
     height: 700px;
 }
 
-.gallery {
+.gallery-vert {
     overflow: auto;
     grid-area: gallery;
     display: flex;
@@ -296,10 +285,27 @@ button:hover {
     margin: 0 auto;
 }
 
-.gallery > img {
+.gallery-vert > img {
     border: var(--bdr-cmp);
     border-radius: var(--bdr-rad);
     height: 50rem;
+}
+
+.gallery-horiz {
+    overflow: auto;
+    grid-area: bgnd;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+    margin: 0 auto;
+}
+
+.gallery-horiz > img {
+    border: var(--bdr-cmp);
+    border-radius: var(--bdr-rad);
+    width: 100vw;
+    max-width: 100%;
 }
 
 .bigimg {

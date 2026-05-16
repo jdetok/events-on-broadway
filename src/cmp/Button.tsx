@@ -1,11 +1,4 @@
-import { type MouseEventHandler, type ReactNode } from "react"
-
-type buttonProps = {
-    buttonType?: 'primary' | 'secondary';
-    cssClass?: string;
-    onClick?: MouseEventHandler;
-    children?: ReactNode;
-}
+import type { buttonProps } from "@/types"
 
 export default function Button({ buttonType = 'primary', onClick, cssClass, children }: buttonProps) {
     return (
