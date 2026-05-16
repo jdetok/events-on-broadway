@@ -59,4 +59,5 @@ export type imgProps = {
 export type bigImgProps = imgProps & {
     onPrev?: () => void;
     onNext?: () => void;
+    buttons?: buttonData[];
 };

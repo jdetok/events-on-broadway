@@ -21,14 +21,17 @@ export const cssEmailPhone = 'email-phone';
 export const cssFormMsgDiv = 'msg';
 export const cssFormClearBtn = 'clear';
 export const cssFormFillBtn = 'fill';
+export const cssBookingForm = 'book';
 export const cssFormInputLabels = 'input-label';
+export const cssGalleryVert = 'gallery-vert';
+export const cssGalleryHoriz = 'gallery-horiz';
 
 // feeds ButtonRow component that sticks to top right of screen
 export const mainSiteButtons: buttonData[] = [
     {cssClass: 'btn-home', text: 'Home', onClick: () => { window.scrollTo({top: 0, behavior: 'smooth'})}},
-    { cssClass: 'btn-gallery', text: 'Gallery', onClick: () => scrollJustAbove('.gallery') },
+    { cssClass: 'btn-gallery', text: 'Gallery', onClick: () => scrollJustAbove(`.${cssGalleryVert}`) },
     {cssClass: 'btn-contact', text: 'Contact', onClick: () => scrollJustAbove('.contact')},
-    {cssClass: 'btn-request', text: 'Book', onClick: () => scrollJustAbove('.request-booking')},
+    {cssClass: 'btn-request', text: 'Book', onClick: () => scrollJustAbove(`.${cssBookingForm}`)},
     {cssClass: 'btn-loc', text: 'Location', onClick: () => scrollJustAbove('.map')},
 ];
 

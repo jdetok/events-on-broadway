@@ -123,6 +123,7 @@ button:hover {
     position: sticky;
     top: 0;
     justify-content: flex-end;
+    z-index: 996;
 }
 
 /* form component for requesting to book an event */
@@ -289,6 +290,7 @@ button:hover {
     width: 100%;
     height: fit-content;
     margin: 0 auto;
+    position: relative;
 }
 
 .gallery-horiz > img {
@@ -296,6 +298,7 @@ button:hover {
     border-radius: var(--bdr-rad);
     width: 100vw;
     max-width: 100%;
+    z-index: 995;
 }
 
 .bigimg {
@@ -322,7 +325,6 @@ button:hover {
     border-radius: var(--bdr-rad);
     max-width: 90vw;
     max-height: 90vh;
-    height: 80vh;
     object-fit: contain;
     pointer-events: all;
 }
@@ -331,6 +333,21 @@ button:hover {
 .gallery-horiz > .bigimg > .bigimg-inner > img {
     max-height: 90vh;
     max-height: 60vh;
+}
+
+.gallery-horiz > .btn-row {
+    display: flex;
+    position: absolute;
+    bottom: unset;
+    top: 0.5rem;
+    left: 3.5rem;
+    transform: translateX(-50%);
+    gap: 8px;
+    z-index: 997;
+}
+
+.gallery-horiz > .btn-row > button {
+    pointer-events: all;
 }
 
 .bigimg-overlay {
