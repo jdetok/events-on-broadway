@@ -35,12 +35,13 @@ export default function Contact({ children }: { children?: ReactNode}) {
     return (
         <div className={cssContact}>
             {children}
+            
+            <h2 className='sect-ttl'>Contact Us:</h2>
+            <EmailPhone cssClass={cssEmailPhone} />
+            <StreetAddr cssClass={cssStreetAddr} />
             <BizHours cssClass={cssContact}>
                 <h2 className='sect-ttl'>Business Hours:</h2>
             </BizHours>
-            <h2 className='sect-ttl'>Contact Us:</h2>
-            <EmailPhone cssClass={cssEmailPhone} />
-            <StreetAddr cssClass={cssStreetAddr}/>
         </div>
     )
 }

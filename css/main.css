@@ -2,6 +2,8 @@
     --global-padding: 0.025rem;
     --title-h1-size: 4rem;
     --title-h2-size: 1.8rem;
+    --h1-font-size: 1.4rem;
+    --h2-font-size: 1.3rem;
     --bdr-rad: 1rem;
     --bdr-cmp: 2px solid black;
     --bdr-form: 1px solid rgba(0, 0, 0, 0.5);
@@ -20,16 +22,31 @@
         "gallery gallery gallery"
         "map map map"
     ;
-    --columns-phone: 1fr;
+    --columns-phone: 1fr 2fr;
     --grid-phone: 
-        "btns"
-        "title"
-        "header" 
-        "gallery"
-        "request"
-        "contact"
-        "map"
+        "icon btns"
+        "title title"
+        "bgnd bgnd"
+        "contact contact"
+        "gallery gallery"
+        "request request"
+        "map map"
     ;
+    --grid-desktop-form:
+        "head head head head"
+        "name name mail mail"
+        "date1 date1 date2 num"
+        "desc desc desc desc"
+        "submit submit submit submit"
+    ;
+    --grid-phone-form:
+        "head head head"
+        "name name num"
+        "mail mail mail"
+        "date1 date1 date2"
+        "desc desc desc"
+        "submit submit submit" 
+
 }
 
 @media (max-width: 1450px) {
@@ -56,23 +73,9 @@
 
 body {
     background-color: var(--bg);
-    font-family: monospace;
+    /* font-family: monospace; */
     /* font-family: sans-serif; */
-}
-
-button {
-    border: var(--bdr-cmp);
-    border-radius: var(--bdr-rad);
-    padding: 5px 12px;
-    font-size: var(--btn-font-size);
-    font-weight: bold;
-    color: var(--btn-text-color);
-    background-color: var(--btn-color);
-}
-
-button:hover {
-    color: var(--btn-text-color-hover);
-    background-color: var(--btn-color-hover);
+    font-family: "Varela Round", sans-serif;
 }
 
 .app {
@@ -89,15 +92,39 @@ button:hover {
         grid-template-areas: var(--grid-phone); 
         grid-template-columns: var(--columns-phone);
     }
-    .background { display: none; }
+    * {
+        --h1-font-size: 1.2rem;
+        --h2-font-size: 1.1rem;
+    }
+
+    .book {
+        grid-template-areas: var(--grid-phone-form);
+    }
+
+    .book > .head {
+        grid-template-areas: 
+            "ttl . fill clear"
+            "msg msg msg msg" 
+        ;
+    }
 }
 
-.header {
-    grid-area: header;
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-areas: "icon title menu";
+
+button {
+    border: var(--bdr-cmp);
+    border-radius: var(--bdr-rad);
+    padding: 5px 12px;
+    font-size: var(--btn-font-size);
+    font-weight: bold;
+    color: var(--btn-text-color);
+    background-color: var(--btn-color);
 }
+
+button:hover {
+    color: var(--btn-text-color-hover);
+    background-color: var(--btn-color-hover);
+}
+
 
 .title {
     grid-area: title;
@@ -113,6 +140,7 @@ button:hover {
 .icon {
     grid-area: icon;
     border-radius: var(--bdr-rad);
+    max-height: 7vh;
 }
 
 .btn-row {
@@ -130,13 +158,7 @@ button:hover {
 .book {
     grid-area: request;
     display: grid;
-    grid-template-areas:
-        "head head head"
-        "name name mail"
-        "date1 date2 num"
-        "desc desc desc"
-        "submit submit submit"
-    ;
+    grid-template-areas: var(--grid-desktop-form);
     gap: 0.4rem;
     border: var(--bdr-cmp);
     border-radius: 1rem;
@@ -144,6 +166,12 @@ button:hover {
     padding: var(--pdg-cmp);
     width: 100%;
     max-width: 100%;
+}
+
+@media (max-width: 800px) {
+    .book {
+        grid-template-areas: var(--grid-phone-form);
+    }
 }
 
 /* form fields */
@@ -164,15 +192,26 @@ button:hover {
 /* form header row for title, message (hidden default), buttons, etc */
 .book > .head {
     grid-area: head;
+    overflow: auto;
     display: grid;
     gap: 0.5rem;
+    width: fit-content;
     grid-template-areas: "ttl msg fill clear";
+}
+
+@media (max-width: 800px) {
+    .book > .head {
+        grid-template-areas: 
+            "ttl . fill clear"
+            "msg msg msg msg" 
+        ;
+    }
 }
 
 .book > .head > .ttl {
     grid-area: ttl;
     margin: auto 0;
-    font-size: 1.5rem;
+    font-size: var(--h1-font-size);
 }
 
 /* message after submitting form (error or success) */
@@ -182,7 +221,7 @@ button:hover {
     border: 4px solid red;
     border-radius: var(--bdr-rad);
     padding: var(--pdg-cmp);
-    font-size: 1.2rem;
+    font-size: var(--h2-font-size);
     font-weight: bold;
 }
 /* fill and clear buttons */
@@ -209,7 +248,7 @@ button:hover {
 
 .book > .submit {
     grid-area: submit;
-    font-size: 1.4rem;
+    font-size: var(--h1-font-size);
 }
 
 @media (max-width: 800px) {
@@ -226,11 +265,11 @@ button:hover {
     border: var(--bdr-cmp);
     border-radius: var(--bdr-rad);
     padding: var(--pdg-cmp);
-    font-size: 1.1rem;
+    font-size: 1rem;  
 }
 
 .sect-ttl {
-    font-size: 1.6rem;
+    font-size: var(--h1-font-size);
 }
 
 .contact > ul {
@@ -258,12 +297,15 @@ button:hover {
     margin-bottom: 1.2rem;
 }
 
+.contact .street-addr {
+    margin-bottom: 1.2rem;
+}
+
 .map {
     grid-area: map;
     border: var(--bdr-cmp);
     border-radius: var(--bdr-rad);
-    height: 35vh;
-    /* height: 700px; */
+    height: 48vh;
 }
 
 .gallery-vert {
@@ -279,7 +321,13 @@ button:hover {
 .gallery-vert > img {
     border: var(--bdr-cmp);
     border-radius: var(--bdr-rad);
-    height: 50rem;
+    height: 60vh;
+}
+
+@media (max-width: 800px) {
+    .gallery-vert > img {
+        height: 50vh;
+    }
 }
 
 .gallery-horiz {
@@ -332,7 +380,6 @@ button:hover {
 /* highlighted image in horizontal gallery */
 .gallery-horiz > .bigimg > .bigimg-inner > img {
     max-height: 90vh;
-    max-height: 60vh;
 }
 
 .gallery-horiz > .btn-row {
@@ -344,6 +391,14 @@ button:hover {
     transform: translateX(-50%);
     gap: 8px;
     z-index: 997;
+}
+
+@media (max-width: 800px) {
+    .gallery-horiz > .btn-row {
+        top: unset;
+        bottom: 0.5rem;
+        left: 50%;
+    }
 }
 
 .gallery-horiz > .btn-row > button {
@@ -379,13 +434,3 @@ button:hover {
 .bigimg-close { grid-area: close; }
 .bigimg-prev { grid-area: prev; }
 .bigimg-next { grid-area: next; }
-
-@media (max-width: 900px) {
-    .icon, .background {
-        display: none;
-    }
-    .header {
-        display: grid;
-        grid-template-areas: "title" "btns";
-    }
-} 

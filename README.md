@@ -14,8 +14,15 @@
 
 
 ## Main page screenshot
-![main page screenshot](./data/img/screenshots/main.png "page screenshot")
+![main page screenshot](./data/img/screenshots/demo_05162026/desktop-home.png "page screenshot")
 
-## Photo gallery screenshot
-![photo gallery screenshot](./data/img/screenshots/photogal.png "photo gallery screenshot")
+## Photo gallery screenshot (desktop)
+![photo gallery screenshot](./data/img/screenshots/demo_05162026/desktop-gallery.png "photo gallery screenshot")
+### Horizontal gallery (phone)
+![photo gallery screenshot](./data/img/screenshots/demo_05162026/phone-gallery-horiz.png "photo gallery screenshot")
 
+### Booking request form
+#### (showing success message)
+![booking form screenshot (showing success message)](./data/img/screenshots/demo_05162026/phone-form-success.png "photo gallery screenshot")
+#### (showing error message)
+![booking form screenshot (showing error message)](./data/img/screenshots/demo_05162026/phone-form-error.png "photo gallery screenshot")
