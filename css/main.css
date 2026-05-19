@@ -4,6 +4,7 @@
     --title-h2-size: 1.8rem;
     --h1-font-size: 1.4rem;
     --h2-font-size: 1.3rem;
+    --h3-font-size: 1.2rem;
     --bdr-rad: 1rem;
     --bdr-cmp: 2px solid black;
     --bdr-form: 1px solid rgba(0, 0, 0, 0.5);
@@ -196,10 +197,11 @@ button:hover {
     display: grid;
     gap: 0.5rem;
     width: 100%;
+    margin: 0 auto;
     grid-template-areas: "ttl msg fill clear";
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1400px) {
     .book > .head {
         grid-template-areas: 
             "ttl . fill clear"
@@ -218,11 +220,18 @@ button:hover {
 .book > .head > .msg {
     grid-area: msg;
     display: none;
-    border: 4px solid red;
+    text-align: center;
+    border: 3px solid red;
     border-radius: var(--bdr-rad);
-    padding: var(--pdg-cmp);
+    padding: 0.4rem;
     font-size: var(--h2-font-size);
     font-weight: bold;
+}
+
+@media (max-width: 1600px) {
+    .book > .head > .msg {
+        font-size: 1rem;
+    }
 }
 /* fill and clear buttons */
 .book > .head > .fill { grid-area: fill; }
@@ -249,15 +258,6 @@ button:hover {
 .book > .submit {
     grid-area: submit;
     font-size: var(--h1-font-size);
-}
-
-@media (max-width: 800px) {
-    .book > .head > h2 {
-        font-size: 1.1rem;
-    }
-    .book > .head > .msg {
-        font-size: 1.1rem;
-    }
 }
 
 .contact {
@@ -336,7 +336,6 @@ button:hover {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: fit-content;
     margin: 0 auto;
     position: relative;
 }

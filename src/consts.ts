@@ -38,8 +38,10 @@ export const mainSiteButtons: buttonData[] = [
 // feeds RequestBooking component
 export const URL_BOOKINGFORM = `/api/booking/submit`; 
 export const errorFieldBorder = '2.5px dashed red';
-export const errorMsgBorder = '4px solid red';
-export const successMsgBorder = '4px solid green';
+export const errorMsgBorder = '3px solid red';
+export const successMsgBorder = '3px solid green';
+export const submittingMsgBorder = '3px solid black';
+export const submittingMsg = 'Submitting...';
 export const formEmptyFieldErrorMsg = 'Fill out each field to submit';
 export const formUnknownErrorMsg = 'Something went wrong, please try again';
 export const formSuccessMsg = 'Submitted successfully!';

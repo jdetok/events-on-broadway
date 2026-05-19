@@ -4,6 +4,8 @@ import { TIME, postJSON, setMsgDiv, clearMsgDiv } from '@/utils';
 import { URL_BOOKINGFORM, errorFieldBorder, errorMsgBorder, successMsgBorder,
     formUnknownErrorMsg, formEmptyFieldErrorMsg, formSuccessMsg, cssFormMsgDiv,
     cssFormFillBtn, cssFormClearBtn, cssFormInputLabels,
+    submittingMsg,
+    submittingMsgBorder,
 } from '@/consts';
 
 type formFields = Record<string, string>;
@@ -33,19 +35,20 @@ export default function RequestBooking(data: formData) {
             // all fields filled, empty msgDiv and attempt to post values to backend
             clearMsgDiv(msgDiv);
             setEmptyFields(new Set());
-            try {
+
+            // message while form is being submitted
+            setMsgDiv(msgDiv, submittingMsgBorder, submittingMsg);
+            
+            try { // send http post request with form data
                 const resp = await postJSON(URL_BOOKINGFORM, values);
-                if (resp === null || resp.status !== 201) {
-                    // something failed posting to backend, display errMsg
+                if (resp === null || resp.status !== 201) { // something failed posting to backend, display errMsg
                     setMsgDiv(msgDiv, errorMsgBorder, formUnknownErrorMsg);
                     console.error('something went wrong attempting to post data to bakend:', resp, values);
-                } else {
-                    // post request successful, display success message
+                } else { // post request successful, display success message
                     setMsgDiv(msgDiv, successMsgBorder, formSuccessMsg);
                     console.log(`form submitted successfully at ${TIME()}`)
                 }
-            } catch (err) {
-                // error posting to backend
+            } catch (err) { // error posting to backend
                 setMsgDiv(msgDiv, errorMsgBorder, formUnknownErrorMsg);
                 console.error(err);
             }
