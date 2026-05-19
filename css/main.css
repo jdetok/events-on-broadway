@@ -46,23 +46,8 @@
         "mail mail mail"
         "date1 date1 date2"
         "desc desc desc"
-        "submit submit submit" 
-
-}
-
-@media (max-width: 1450px) {
-    * {
-        --title-h1-size: 2.5rem;
-        --title-h2-size: 1.4rem;
-    }
-}
-
-@media (max-width: 1150px) {
-    * {
-        --title-h1-size: 1.7rem;
-        --title-h2-size: 1.1rem;
-        --btn-font-size: 0.6rem;
-    }
+        "submit submit submit"
+    ;
 }
 
 /* reduces built in browser padding */
@@ -74,8 +59,6 @@
 
 body {
     background-color: var(--bg);
-    /* font-family: monospace; */
-    /* font-family: sans-serif; */
     font-family: "Varela Round", sans-serif;
 }
 
@@ -87,29 +70,6 @@ body {
     width: 99%;
     margin: 0 auto;
 }
-
-@media (max-width: 800px) {
-    .app { 
-        grid-template-areas: var(--grid-phone); 
-        grid-template-columns: var(--columns-phone);
-    }
-    * {
-        --h1-font-size: 1.2rem;
-        --h2-font-size: 1.1rem;
-    }
-
-    .book {
-        grid-template-areas: var(--grid-phone-form);
-    }
-
-    .book > .head {
-        grid-template-areas: 
-            "ttl . fill clear"
-            "msg msg msg msg" 
-        ;
-    }
-}
-
 
 button {
     border: var(--bdr-cmp);
@@ -125,7 +85,6 @@ button:hover {
     color: var(--btn-text-color-hover);
     background-color: var(--btn-color-hover);
 }
-
 
 .title {
     grid-area: title;
@@ -169,12 +128,6 @@ button:hover {
     max-width: 100%;
 }
 
-@media (max-width: 800px) {
-    .book {
-        grid-template-areas: var(--grid-phone-form);
-    }
-}
-
 /* form fields */
 .book > .mail  { grid-area: mail; }
 .book > .name  { grid-area: name; }
@@ -201,15 +154,6 @@ button:hover {
     grid-template-areas: "ttl msg fill clear";
 }
 
-@media (max-width: 1400px) {
-    .book > .head {
-        grid-template-areas: 
-            "ttl . fill clear"
-            "msg msg msg msg" 
-        ;
-    }
-}
-
 .book > .head > .ttl {
     grid-area: ttl;
     margin: auto 0;
@@ -224,15 +168,10 @@ button:hover {
     border: 3px solid red;
     border-radius: var(--bdr-rad);
     padding: 0.4rem;
-    font-size: var(--h2-font-size);
+    font-size: var(--h3-font-size);
     font-weight: bold;
 }
 
-@media (max-width: 1600px) {
-    .book > .head > .msg {
-        font-size: 1rem;
-    }
-}
 /* fill and clear buttons */
 .book > .head > .fill { grid-area: fill; }
 .book > .head > .clear { grid-area: clear; }
@@ -324,12 +263,6 @@ button:hover {
     height: 60vh;
 }
 
-@media (max-width: 800px) {
-    .gallery-vert > img {
-        height: 50vh;
-    }
-}
-
 .gallery-horiz {
     overflow: hidden; 
     grid-area: bgnd;
@@ -392,14 +325,6 @@ button:hover {
     z-index: 997;
 }
 
-@media (max-width: 800px) {
-    .gallery-horiz > .btn-row {
-        top: unset;
-        bottom: 0.5rem;
-        left: 50%;
-    }
-}
-
 .gallery-horiz > .btn-row > button {
     pointer-events: all;
 }
@@ -427,9 +352,60 @@ button:hover {
     font-size: 1rem;
     cursor: pointer;
     pointer-events: all;
-    z-index: 1000;
+    z-index: 1000; 
 }
 
 .bigimg-close { grid-area: close; }
 .bigimg-prev { grid-area: prev; }
 .bigimg-next { grid-area: next; }
+
+@media (max-width: 1450px) {
+    * {
+        --title-h1-size: 2.5rem;
+        --title-h2-size: 1.4rem;
+        --h3-font-size: 1rem;
+    }
+}
+
+/* MIDSIZE PAGE SIZING */
+@media (max-width: 1200px) {
+    * {
+        --title-h1-size: 1.7rem;
+        --title-h2-size: 1.1rem;
+        --btn-font-size: 0.6rem;
+    }
+    .book > .head {
+        grid-template-areas: 
+            "ttl . fill clear"
+            "msg msg msg msg" 
+        ;
+    }
+}
+
+/* PRIMARY PHONE/VERTICAL LAYOUT STYLING */
+@media (max-width: 850px) {
+    * {
+        --h1-font-size: 1.2rem;
+        --h2-font-size: 1.1rem;
+        --h3-font-size: 1rem;
+    }
+
+    .app { 
+        grid-template-areas: var(--grid-phone); 
+        grid-template-columns: var(--columns-phone);
+    }
+
+    .gallery-horiz > .btn-row {
+        top: unset;
+        bottom: 0.5rem;
+        left: 50%;
+    }
+
+    .gallery-vert > img {
+        height: 50vh;
+    }
+
+    .book {
+        grid-template-areas: var(--grid-phone-form);
+    }
+}

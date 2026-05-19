@@ -8,6 +8,7 @@ import RequestBooking from "./RequestBooking";
 import { FORM, TITLE, SUBTITLE, ICON_SRC, mainSiteButtons } from "@/consts";
 
 export default function App() {
+    window.onresize = () => console.log(`Width: ${window.innerWidth}px, Height: ${window.innerHeight}px`);
     return (
         <main className="app">
             <Icon src={ ICON_SRC } />
