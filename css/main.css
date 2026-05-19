@@ -195,7 +195,7 @@ button:hover {
     overflow: auto;
     display: grid;
     gap: 0.5rem;
-    width: fit-content;
+    width: 100%;
     grid-template-areas: "ttl msg fill clear";
 }
 

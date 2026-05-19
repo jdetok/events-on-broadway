@@ -1,5 +1,6 @@
 import express from 'express';
 import { db } from './db';
+import { sendEmail } from './gmail';
 
 const TIME_NOW = () => new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' });
 
@@ -30,6 +31,19 @@ app.post('/api/booking/submit', async (req, res) => {
             data: data,
         });    
         console.error(err);
+    }
+
+    try {
+        await sendEmail(
+            'jdeko17@gmail.com',
+            `New Booking Request Received at ${TIME_NOW()}`,
+            [
+                `Request made by: ${data.name}`, `Email address: ${data.mail}`, `Estimated attendees: ${data.num}`,
+                `First choice date: ${data.date1}`, `Second choice date: ${data.date2}`, `Event description: ${data.desc}`,
+            ].join('\n')
+        )
+    } catch (err) {
+        console.log('failed to send mail:', err);
     }
 
     res.status(201).send({
