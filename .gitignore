@@ -8,3 +8,4 @@ claude
 !data/img/screenshots/*.jpg
 *.heic*
 .DS_Store
+token.json
