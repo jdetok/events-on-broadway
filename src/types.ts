@@ -8,9 +8,10 @@ export type buttonData = {
 
 export type buttonProps = {
     buttonType?: 'primary' | 'secondary';
-    cssClass?: string;
-    onClick?: MouseEventHandler;
+    cssClass?: string | undefined;
+    onClick?: MouseEventHandler | (() => void) | undefined;
     children?: ReactNode;
+    text?: string;
 };
 
 export type addrData = {

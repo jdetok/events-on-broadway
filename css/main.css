@@ -11,6 +11,7 @@
     --bdr-form: 1px solid rgba(0, 0, 0, 0.5);
     --bg: rgba(227, 222, 232, 0.75);
     --pdg-cmp: 0.5rem;
+    --pdg-btn: 0.335rem;
     --btn-color: rgba(47, 8, 73, 0.25);
     --btn-color-hover: rgba(47, 8, 73, 0.65);
     --btn-text-color: rgba(0, 0, 0, 0.8);
@@ -108,13 +109,18 @@ button:hover {
 
 .btn-row {
     grid-area: btns;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     padding: var(--pdg-cmp);
     height: fit-content;
     position: sticky;
     top: 0;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     z-index: 996;
+}
+
+.btn1 {
+    padding: var(--pdg-btn);
 }
 
 /* form component for requesting to book an event */

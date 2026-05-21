@@ -29,7 +29,7 @@ export const cssGalleryHoriz = 'gallery-horiz';
 // feeds ButtonRow component that sticks to top right of screen
 export const mainSiteButtons: buttonData[] = [
     {cssClass: 'btn-home', text: 'Home', onClick: () => { window.scrollTo({top: 0, behavior: 'smooth'})}},
-    {cssClass: 'btn-ab', text: 'About', onClick: () => scrollJustAbove('.feat-text')},
+    {cssClass: 'btn-abt', text: 'About', onClick: () => scrollJustAbove('.feat-text')},
     {cssClass: 'btn-gallery', text: 'Gallery', onClick: () => scrollJustAbove(`.${cssGalleryVert}`) },
     {cssClass: 'btn-contact', text: 'Contact', onClick: () => scrollJustAbove('.contact')},
     {cssClass: 'btn-request', text: 'Book', onClick: () => scrollJustAbove(`.${cssBookingForm}`)},

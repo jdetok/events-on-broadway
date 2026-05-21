@@ -49,9 +49,9 @@ export default function Gallery({ type }: { type: 'vert' | 'horiz'}) {
     
     // buttons prop for ButtonRow
     const navButtons = [
-        { cssClass: 'bigimg-close', text: 'x', onClick: close },
-        { cssClass: 'bigimg-prev', text: '<', onClick: showPrev },
-        { cssClass: 'bigimg-next', text: '>', onClick: showNext },
+        { cssClass: 'bigimg-close', buttonType: 'secondary' as const, text: 'x', onClick: close },
+        { cssClass: 'bigimg-prev', buttonType: 'secondary' as const, text: '<', onClick: showPrev },
+        { cssClass: 'bigimg-next', buttonType: 'secondary' as const, text: '>', onClick: showNext },
     ]
 
     // keyboard event listeners for navigating 
