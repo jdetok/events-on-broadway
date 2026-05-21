@@ -15,7 +15,7 @@
     --btn-color-hover: rgba(47, 8, 73, 0.65);
     --btn-text-color: rgba(0, 0, 0, 0.8);
     --btn-text-color-hover: rgba(227, 221, 173, 0.917);
-    --btn-font-size: 0.9rem;
+    --btn-font-size: 0.7rem;
     --columns-desktop: 1fr 2fr 1fr;
     --grid-desktop: 
         "icon title btns"
