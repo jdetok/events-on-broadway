@@ -29,7 +29,8 @@ export const cssGalleryHoriz = 'gallery-horiz';
 // feeds ButtonRow component that sticks to top right of screen
 export const mainSiteButtons: buttonData[] = [
     {cssClass: 'btn-home', text: 'Home', onClick: () => { window.scrollTo({top: 0, behavior: 'smooth'})}},
-    { cssClass: 'btn-gallery', text: 'Gallery', onClick: () => scrollJustAbove(`.${cssGalleryVert}`) },
+    {cssClass: 'btn-ab', text: 'About', onClick: () => scrollJustAbove('.feat-text')},
+    {cssClass: 'btn-gallery', text: 'Gallery', onClick: () => scrollJustAbove(`.${cssGalleryVert}`) },
     {cssClass: 'btn-contact', text: 'Contact', onClick: () => scrollJustAbove('.contact')},
     {cssClass: 'btn-request', text: 'Book', onClick: () => scrollJustAbove(`.${cssBookingForm}`)},
     {cssClass: 'btn-loc', text: 'Location', onClick: () => scrollJustAbove('.map')},
@@ -45,3 +46,14 @@ export const submittingMsg = 'Submitting...';
 export const formEmptyFieldErrorMsg = 'Fill out each field to submit';
 export const formUnknownErrorMsg = 'Something went wrong, please try again';
 export const formSuccessMsg = 'Submitted successfully!';
+
+export const ABOUT_TEXT = `
+Events on Broadway is an upscale yet affordable event space available for reservation in
+the Baden neighborhood of Historic North St. Louis. The newly renovated space was designed with flexibility in mind to accomodate a
+wide array of occasions; whether it's a holiday party, wedding reception,
+baby shower, or business meeting, we hope to host it at Events on Broadway!
+`.trim();
+
+export const ABOUT_BOTTOM = `
+For more information, find us on <a href="https://www.facebook.com/eventsonbroadwaystl" target="__blank">Facebook</a>!
+`.trim();

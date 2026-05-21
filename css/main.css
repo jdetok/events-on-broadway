@@ -7,6 +7,7 @@
     --h3-font-size: 1.2rem;
     --bdr-rad: 1rem;
     --bdr-cmp: 2px solid black;
+    --bdr-lite: 1px solid black;
     --bdr-form: 1px solid rgba(0, 0, 0, 0.5);
     --bg: rgba(227, 222, 232, 0.75);
     --pdg-cmp: 0.5rem;
@@ -19,6 +20,7 @@
     --grid-desktop: 
         "icon title btns"
         "bgnd bgnd bgnd"
+        "abt abt abt"
         "request request contact"
         "gallery gallery gallery"
         "map map map"
@@ -28,6 +30,7 @@
         "icon btns"
         "title title"
         "bgnd bgnd"
+        "abt abt"
         "contact contact"
         "gallery gallery"
         "request request"
@@ -197,6 +200,22 @@ button:hover {
 .book > .submit {
     grid-area: submit;
     font-size: var(--h1-font-size);
+}
+
+.feat-text {
+    grid-area: abt;
+    border: var(--bdr-cmp);
+    border-radius: var(--bdr-rad);
+    padding: var(--pdg-cmp);
+    text-align: center;
+}
+
+.feat-text > p {
+    margin: 0.5rem auto;
+    padding: var(--pdg-cmp);
+    border: var(--bdr-lite);
+    border-radius: var(--bdr-rad);
+    width: 95%;
 }
 
 .contact {
