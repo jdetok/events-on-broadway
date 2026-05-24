@@ -1,5 +1,5 @@
 import express from 'express';
-import { TIME } from '@/utils';
+import { TIME } from '../utils';
 
 const router = express.Router();
 

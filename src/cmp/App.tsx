@@ -7,6 +7,7 @@ import Gallery from "./gallery/Gallery";
 import FeaturedText from "./FeaturedText";
 import RequestBooking from "./RequestBooking";
 import { FORM, TITLE, SUBTITLE, ICON_SRC, mainSiteButtons, ABOUT_TEXT, ABOUT_BOTTOM } from "@/consts";
+import PhotoUpload from "./gallery/PhotoUpload";
 
 export default function App() {
     window.onresize = () => console.log(`Width: ${window.innerWidth}px, Height: ${window.innerHeight}px`);
@@ -21,6 +22,7 @@ export default function App() {
             <FeaturedText ttl="About Us" text={ABOUT_TEXT} emphasisBtm={ABOUT_BOTTOM} />
             <Contact />
             <Map />
+            <PhotoUpload />
         </main>
     )
 }

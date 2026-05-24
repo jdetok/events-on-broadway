@@ -25,6 +25,7 @@
         "request request contact"
         "gallery gallery gallery"
         "map map map"
+        "upload upload upload"
     ;
     --columns-phone: 1fr 2fr;
     --grid-phone: 
@@ -36,6 +37,7 @@
         "gallery gallery"
         "request request"
         "map map"
+        "upload upload"
     ;
     --grid-desktop-form:
         "head head head head"
@@ -383,6 +385,34 @@ button:hover {
 .bigimg-close { grid-area: close; }
 .bigimg-prev { grid-area: prev; }
 .bigimg-next { grid-area: next; }
+
+.upload {
+    grid-area: upload;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 15vw auto;
+    grid-template-areas: 
+        "ttl ttl"
+        "inp btn"
+        "msg msg"
+        "img img"
+    ;
+}
+.upload > * { width: fit-content; }
+.upload > .head { grid-area: ttl}
+.upload > button { grid-area: btn; }
+.upload > input { grid-area: inp; }
+.upload > img { grid-area: img; }
+.upload > p.err { grid-area: msg; border: 3px solid red; }
+.upload > p.ok { grid-area: msg; border: 3px solid green; }
+
+.upload, .upload > input, .upload > img, .upload > p {
+    border: var(--bdr-cmp);
+    border-radius: var(--bdr-rad);
+    padding: var(--pdg-cmp);
+}
+
+.upload > img { padding: 0; }
 
 @media (max-width: 1450px) {
     * {

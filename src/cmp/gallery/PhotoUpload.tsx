@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 
-type UploadStatus = 'idle' | 'uplaoding' | 'success' | 'error';
+type UploadStatus = 'idle' | 'uploading' | 'success' | 'error';
 
 export default function PhotoUpload({ onSuccess }: { onSuccess?: (filename: string) => void }) {
     const [status, setStatus] = useState<UploadStatus>('idle');
@@ -23,7 +23,7 @@ export default function PhotoUpload({ onSuccess }: { onSuccess?: (filename: stri
         const formData = new FormData();
         formData.append('photo', file);
 
-        setStatus('uplaoding');
+        setStatus('uploading');
         try {
             const res = await fetch('/api/upload', { method: 'POST', body: formData });
             const data = await res.json();
@@ -39,13 +39,13 @@ export default function PhotoUpload({ onSuccess }: { onSuccess?: (filename: stri
     };
 
     return (
-        <div>
+        <div className='upload'>
+            <h2 className='head'>Upload an Image</h2>
             <input ref={inputRef} type="file" accept="image/*" onChange={handleFileChange} />
-            {preview && <img src={preview} alt="Preview" style={{ maxWidth: 200 }} />}
-            <button onClick={handleUpload} disabled={!preview || status === 'uplaoding'}>
-                {status === 'success' && <p>Upload successful!</p>}
-                {status === 'error' && <p>Error: {errorMsg}</p>}
-            </button>
+            <button onClick={handleUpload} disabled={!preview || status === 'uploading'}>Upload Image</button>
+            {preview && <img src={preview} alt="Preview" style={{ maxWidth: 300 }} />}
+            {status === 'success' && <p className='ok'>Upload successful!</p>}
+            {status === 'error' && <p className='err'>Error: {errorMsg}</p>}
         </div>
     );
 }

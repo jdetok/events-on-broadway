@@ -2,8 +2,10 @@ import express from 'express';
 import multer from 'multer';
 import sharp from 'sharp';
 import path from 'path';
-import fs from 'fs';
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const router = express.Router();
 
 // store uploaded file in memory for sharp to process
@@ -17,6 +19,7 @@ const upload = multer({
 });
 
 const GALLERY_DIR = path.resolve(__dirname, '../data/img/upload');
+console.log(GALLERY_DIR);
 
 router.post('/upload', upload.single('photo'), async (req, res) => {
     if (!req.file) {
