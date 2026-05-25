@@ -37,8 +37,10 @@ services:
         depends_on:
             - api
         volumes:
+            - ./.htpasswd:/etc/nginx/.htpasswd:ro
             - ./data/img/upload:/data/img/upload
             - ./data/img/gallery:/data/img/gallery
             - ./src:/app/src
+    
 
     

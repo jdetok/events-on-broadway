@@ -17,5 +17,10 @@ ROUTERS.forEach((r) => {
     app.use('/api', r);
 });
 
+app.get('/admin', (_req, res) => {
+    res.cookie('admin', 'true', { httpOnly: false });
+    res.sendFile('/app/dist/index.html')
+})
+
 // listen for requests
 app.listen(PORT, () => console.log(`API listening on port ${PORT}`));
