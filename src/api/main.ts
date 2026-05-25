@@ -12,7 +12,7 @@ app.use(express.json());
 
 // register each router
 ROUTERS.forEach((r) => {
-    app.use('api', r);
+    app.use('/api', r);
 });
 
 // listen for requests

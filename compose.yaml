@@ -23,3 +23,6 @@ services:
             - 6543:6543
         depends_on:
             - mongo
+        volumes:
+            - ./data/img/upload:/data/img/upload
+        # entrypoint: ["sh", "-c", "chown -R node:node /app/data/img/upload && node dist/main.js"]

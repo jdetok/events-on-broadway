@@ -403,8 +403,10 @@ button:hover {
 .upload > button { grid-area: btn; }
 .upload > input { grid-area: inp; }
 .upload > img { grid-area: img; }
+.upload > p.msg { grid-area: msg; }
 .upload > p.err { grid-area: msg; border: 3px solid red; }
 .upload > p.ok { grid-area: msg; border: 3px solid green; }
+.upload > p.upl { grid-area: msg; border: 3px solid purple; }
 
 .upload, .upload > input, .upload > img, .upload > p {
     border: var(--bdr-cmp);
