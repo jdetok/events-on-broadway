@@ -9,3 +9,4 @@ claude
 *.heic*
 .DS_Store
 token.json
+.htpasswd

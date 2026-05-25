@@ -5,7 +5,7 @@ import { URL_BOOKINGFORM, errorFieldBorder, errorMsgBorder, successMsgBorder,
     formUnknownErrorMsg, formEmptyFieldErrorMsg, formSuccessMsg, cssFormMsgDiv,
     cssFormFillBtn, cssFormClearBtn, cssFormInputLabels,
     submittingMsg,
-    submittingMsgBorder,
+    progressMsgBorder,
 } from '@/consts';
 
 type formFields = Record<string, string>;
@@ -37,7 +37,7 @@ export default function RequestBooking(data: formData) {
             setEmptyFields(new Set());
 
             // message while form is being submitted
-            setMsgDiv(msgDiv, submittingMsgBorder, submittingMsg);
+            setMsgDiv(msgDiv, progressMsgBorder, submittingMsg);
             
             try { // send http post request with form data
                 const resp = await postJSON(URL_BOOKINGFORM, values);

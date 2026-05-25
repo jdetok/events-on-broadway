@@ -1,8 +1,41 @@
 import { scrollJustAbove } from '@/utils';
-import { data } from '../data/eventsOnBroadwayData.json';
+// import { data } from '../data/eventsOnBroadwayData.json';
 import type { addrData, buttonData, contactData, formData } from '@/types';
 
-// objects from json data config file to directly import in modules
+const data = {
+    siteTitle: "Events on Broadway",
+    subTitle: "St. Louis, Missouri",
+    logoSrc: "./data/img/oglogo_025.png",
+    contact: {
+        name: "Events on Broadway, LLC",
+        email: "eventsonbroadwaystl@gmail.com",
+        phone: "314-934-3479",
+        hours: [
+            ["Mon-Thu", "10am-3pm"],
+            ["Fri-Sat", "Appointment Only"],
+            ["Sunday", "Closed"],
+        ],
+        addr: {
+            street: "8101 North Broadway",
+            city: "Saint Louis",
+            state: "MO",
+            zip: "63147",
+        },
+    },
+    form: {
+        title: "Request to Book an Event",
+        cssClass: "book",
+        inputs: [
+            { inputType: "text",     cssClass: "name",  placeholder: "Name (person or organization)" },
+            { inputType: "email",    cssClass: "mail",  placeholder: "Email address" },
+            { inputType: "number",   cssClass: "num",   placeholder: "Estimated number of guests" },
+            { inputType: "date",     cssClass: "date1", placeholder: "Preferred date" },
+            { inputType: "date",     cssClass: "date2", placeholder: "Second-choice date" },
+            { inputType: "textarea", cssClass: "desc",  placeholder: "Please briefly describe the event for which you wish to book the space" },
+        ],
+    },
+};
+
 export const CONTACT = data.contact as contactData;
 export const ADDR = data.contact.addr as addrData;
 export const FORM = data.form as formData;
@@ -41,7 +74,7 @@ export const URL_BOOKINGFORM = `/api/booking/submit`;
 export const errorFieldBorder = '2.5px dashed red';
 export const errorMsgBorder = '3px solid red';
 export const successMsgBorder = '3px solid green';
-export const submittingMsgBorder = '3px solid black';
+export const progressMsgBorder = '3px solid purple';
 export const submittingMsg = 'Submitting...';
 export const formEmptyFieldErrorMsg = 'Fill out each field to submit';
 export const formUnknownErrorMsg = 'Something went wrong, please try again';

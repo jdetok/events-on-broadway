@@ -7,11 +7,13 @@ import { useState, useEffect } from "react";
 export default function Gallery({ type }: { type: 'vert' | 'horiz'}) {
     const cssClass = Gallery.name.toLowerCase();
     const [selected, setSelected] = useState<string | null>(null);
+    const [unsortedImages, setUnsortedImages] = useState<string[]>([]);
     
-    // build separate arrays of vertical and horizontal images
-    const vertImages = Object.values(import.meta.glob('../../../data/img/gallery/vert/*.png', { eager: true }));
-    const horizImages = Object.values(import.meta.glob('../../../data/img/gallery/horiz/*.png', { eager: true }));
-    const unsortedImages = (type === 'vert' ? vertImages : horizImages).map((m: any) => m.default);
+    useEffect(() => {
+        fetch(`/api/img/gallery/${type}`)
+            .then(r => r.json()).then(data => setUnsortedImages(data.images))
+            .catch(err => console.error('Gallery fetch failed:', err));
+    }, [type]);
 
     // sort images array to keep specified first image at the start of the array
     const images = [
@@ -19,6 +21,8 @@ export default function Gallery({ type }: { type: 'vert' | 'horiz'}) {
         ...unsortedImages.filter((path: string) => !path.includes(FIRST_IMAGE)),
     ];
     const len = images.length;
+
+    console.log(images);
 
     // separate index for handling full-screen displayed image from horiz gallery
     const [horizIdx, setHorizIdx] = useState(0);
@@ -36,9 +40,9 @@ export default function Gallery({ type }: { type: 'vert' | 'horiz'}) {
     const nav = (dir: 1 | -1) => {
         const idx = (effectiveIdx + dir + len) % len;
         if (type === 'horiz') {
-            selected ? setSelected(images[idx]) : setHorizIdx(idx)
+            selected ? setSelected(images[idx] || '') : setHorizIdx(idx)
         } else[
-            setSelected(images[idx])
+            setSelected(images[idx] || '')
         ];
     }
 
@@ -79,10 +83,10 @@ export default function Gallery({ type }: { type: 'vert' | 'horiz'}) {
 
             {type === 'horiz' && (
                 <>
-                    <Img src={images[horizIdx]}
+                    <Img src={images[horizIdx] || ''}
                         cssClass={`img-${type}-currnt-${horizIdx}`}
                         alt={`Horizontal gallery image`}
-                        onClick={() => setSelected(images[horizIdx])}
+                        onClick={() => setSelected(images[horizIdx] || '')}
                     />
                     <ButtonRow buttons={navButtons.filter((b) => b.cssClass !== 'bigimg-close')} />
                 </>

@@ -23,3 +23,24 @@ services:
             - 6543:6543
         depends_on:
             - mongo
+        volumes:
+            - ./data/img/upload:/data/img/upload
+            - ./data/img/gallery:/data/img/gallery
+    
+    frontend:
+        build:
+            context: .
+            dockerfile: frontend.Dockerfile
+        restart: always
+        ports:
+            - 3456:80
+        depends_on:
+            - api
+        volumes:
+            - ./.htpasswd:/etc/nginx/.htpasswd:ro
+            - ./data/img/upload:/data/img/upload
+            - ./data/img/gallery:/data/img/gallery
+            - ./src:/app/src
+    
+
+    

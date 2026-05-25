@@ -9,6 +9,7 @@ COPY tsconfig.json api.tsconfig.json ./
 
 COPY token.json ./
 
+COPY src/*.ts ./src/
 COPY src/api ./src/api
 
 CMD ["npx", "tsx", "src/api/main.ts"]
