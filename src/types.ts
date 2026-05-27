@@ -62,3 +62,5 @@ export type bigImgProps = imgProps & {
     onNext?: () => void;
     buttons?: buttonData[];
 };
+
+export type galleryType = 'vert' | 'horiz';

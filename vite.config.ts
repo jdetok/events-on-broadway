@@ -18,6 +18,7 @@ export default defineConfig(({ mode }) => {
         },
         server: {
             port: 3456,
+            allowedHosts: ['eob.jdeko.me'],
             strictPort: true,
             proxy: {
                 '/api': {

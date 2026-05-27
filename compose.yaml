@@ -42,5 +42,11 @@ services:
             - ./data/img/gallery:/data/img/gallery
             - ./src:/app/src
     
-
-    
+    cloudflared:
+        image: cloudflare/cloudflared:latest
+        env_file: 
+            - .env
+        restart: unless-stopped
+        command: tunnel --config /etc/cloudflared/config.yml run
+        volumes:
+            - ./cloudflared.yml:/etc/cloudflared/config.yml:ro
