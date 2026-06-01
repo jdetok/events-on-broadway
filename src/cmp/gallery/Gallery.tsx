@@ -3,8 +3,10 @@ import BigImg from "./BigImg";
 import ButtonRow from "../ButtonRow";
 import { FIRST_IMAGE } from "@/consts";
 import { useState, useEffect } from "react";
+import { deleteImage, stripFileName } from "@/utils";
+import type { galleryType } from "@/types";
 
-export default function Gallery({ type }: { type: 'vert' | 'horiz'}) {
+export default function Gallery({ type, adminAccess }: { type: galleryType, adminAccess?: boolean }) {
     const cssClass = Gallery.name.toLowerCase();
     const [selected, setSelected] = useState<string | null>(null);
     const [unsortedImages, setUnsortedImages] = useState<string[]>([]);
@@ -21,8 +23,6 @@ export default function Gallery({ type }: { type: 'vert' | 'horiz'}) {
         ...unsortedImages.filter((path: string) => !path.includes(FIRST_IMAGE)),
     ];
     const len = images.length;
-
-    console.log(images);
 
     // separate index for handling full-screen displayed image from horiz gallery
     const [horizIdx, setHorizIdx] = useState(0);
@@ -83,18 +83,31 @@ export default function Gallery({ type }: { type: 'vert' | 'horiz'}) {
 
             {type === 'horiz' && (
                 <>
-                    <Img src={images[horizIdx] || ''}
+                    <Img src={images[horizIdx] ?? '.png'}
                         cssClass={`img-${type}-currnt-${horizIdx}`}
                         alt={`Horizontal gallery image`}
-                        onClick={() => setSelected(images[horizIdx] || '')}
+                        onClick={() => setSelected(images[horizIdx] ?? null)}
+                        deleteHandler={
+                            adminAccess
+                            ? async () => deleteImage(type, stripFileName(images[horizIdx] ?? ''))
+                            : null
+                        }
                     />
                     <ButtonRow buttons={navButtons.filter((b) => b.cssClass !== 'bigimg-close')} />
                 </>
             )}
 
             {type === 'vert' && images.map((path: string, i) => (
-                <Img key={`${cssClass}-${i}`} src={path} cssClass={`${cssClass}-${i}`} 
-                    alt={`Gallery image ${i+1}/${len}`} onClick={() => setSelected(path)}
+                <Img key={`${cssClass}-${i}`}
+                    src={path}
+                    cssClass={`${cssClass}-${i}`} 
+                    alt={`Gallery image ${i + 1}/${len}`}
+                    onClick={() => setSelected(path)}
+                    deleteHandler={
+                        adminAccess
+                        ? async () => deleteImage(type, stripFileName(path))
+                        : null
+                    }
                 />
             ))}
         </div>

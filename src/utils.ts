@@ -37,3 +37,19 @@ export const postJSON = async (url: string, data: any) => {
         body: JSON.stringify(data),
     });
 }
+
+// request the api to delete a gallery image
+export const deleteImage = async (galleryType: string, src: string) => {
+    try {
+        const resp = await fetch(`/api/img/gallery/${galleryType}/${src}`, { method: 'DELETE' });
+        console.log(resp)
+        if (resp.status < 200 || resp.status > 299) {
+            throw new Error(`Unsuccessful status: ${resp.status}`);
+        }
+        console.log(`${resp.statusText}: Deleted ${src}`)
+    } catch (err) {
+        console.error(err);
+    }   
+}
+
+export const stripFileName = (path: string): string => path.replace(/^.*[\\/]/, '');

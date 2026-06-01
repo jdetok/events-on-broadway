@@ -52,12 +52,17 @@ export type bookingFormFields = {
 
 export type imgProps = {
     src: string;
+    deleteHandler: (() => Promise<void>) | null;
     alt?: string;
     cssClass?: string;
     onClick?: MouseEventHandler;
 };
 
-export type bigImgProps = imgProps & {
+export type bigImgProps = {
+    src: string;
+    alt?: string;
+    cssClass?: string;
+    onClick?: MouseEventHandler;
     onPrev?: () => void;
     onNext?: () => void;
     buttons?: buttonData[];
