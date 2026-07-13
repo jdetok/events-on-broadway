@@ -74,6 +74,7 @@ export default function Gallery({ type, adminAccess }: { type: galleryType, admi
 
     return (
         <div className={`${cssClass}-${type}`}>
+
             {selected && (
                 <>
                     <div className="bigimg-overlay" onClick={() => setSelected(null)} />

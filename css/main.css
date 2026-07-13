@@ -92,6 +92,11 @@ button:hover {
     background-color: var(--btn-color-hover);
 }
 
+.delete-img:hover {
+    color: rgb(0, 255, 255);
+    background-color: rgba(78, 9, 9, 1);
+}
+
 .title {
     grid-area: title;
     display: flex;
@@ -284,7 +289,7 @@ button:hover {
     margin: 0 auto;
 }
 
-.gallery-vert > img {
+.gallery-vert > * > img {
     border: var(--bdr-cmp);
     border-radius: var(--bdr-rad);
     height: 60vh;
@@ -300,7 +305,7 @@ button:hover {
     position: relative;
 }
 
-.gallery-horiz > img {
+.gallery-horiz > * > img {
     border: var(--bdr-cmp);
     border-radius: var(--bdr-rad);
     width: 100vw;

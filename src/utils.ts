@@ -1,6 +1,5 @@
 // BASIC UTILS FUNCS
 export const TIME = () => new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' });
-
 export const TIME_FSTRING = (date: Date) => {
     const pad = (n: number, len = 2) => String(n).padStart(len, '0');
     return [
