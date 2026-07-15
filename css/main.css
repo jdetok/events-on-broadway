@@ -323,6 +323,22 @@ button:hover {
     pointer-events: none;
 }
 
+.delete-confirm-box {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    pointer-events: none;
+}
+
+.delete-confirm-text {
+    size: 1.5rem;
+    color: white;
+}
+
 .bigimg-inner {
     position: relative;
     display: flex;
@@ -332,7 +348,7 @@ button:hover {
 }
 
 /* highlighted image in vertical gallery */
-.bigimg-inner > img {
+.bigimg-inner > img, .delete-confirm-img {
     border: 1px solid white;
     border-radius: var(--bdr-rad);
     max-width: 90vw;
@@ -357,11 +373,18 @@ button:hover {
     z-index: 997;
 }
 
+.delete-confirm-box > .btn-row > button {
+    z-index: 1000;
+    background-color: rgba(176, 32, 32, 0.85);
+    color: white;
+    margin: 0.4rem;
+}
+
 .gallery-horiz > .btn-row > button {
     pointer-events: all;
 }
 
-.bigimg-overlay {
+.bigimg-overlay, .delete-confirm-overlay {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);

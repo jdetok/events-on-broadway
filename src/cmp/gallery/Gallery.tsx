@@ -10,6 +10,8 @@ export default function Gallery({ type, adminAccess }: { type: galleryType, admi
     const cssClass = Gallery.name.toLowerCase();
     const [selected, setSelected] = useState<string | null>(null);
     const [unsortedImages, setUnsortedImages] = useState<string[]>([]);
+    const [confirmTarget, setConfirmTarget] = useState<string | null>(null);
+    const [deleting, setDeleting] = useState(false);
     
     useEffect(() => {
         fetch(`/api/img/gallery/${type}`)
@@ -72,6 +74,36 @@ export default function Gallery({ type, adminAccess }: { type: galleryType, admi
         return () => window.removeEventListener('keydown', handleNavKeys);
     }, [selected]);
 
+    // delete confirmation
+    const requestDelete = (path: string) => {
+        if (path) setConfirmTarget(path);
+    };
+    
+    const cancelConfirmDelete = () => {
+        if (!deleting) setConfirmTarget(null);
+    };
+
+    const performDelete = async () => {
+        if (!confirmTarget) return;
+        setDeleting(true);
+        try {
+            await deleteImage(type, stripFileName(confirmTarget));
+            setUnsortedImages((prev) => prev.filter((p) => p !== confirmTarget));
+            if (selected === confirmTarget) setSelected(null);
+        } catch (err) {
+            console.error('Delete failed:', err);
+        } finally {
+            setDeleting(false);
+            setConfirmTarget(null);
+        }
+    };
+
+
+    const confirmButtons = [
+        { cssClass: 'delete-confirm-cancel', buttonType: 'secondary' as const, text: 'Cancel', onClick: cancelConfirmDelete },
+        { cssClass: 'delete-confirm-yes', buttonType: 'secondary' as const, text: deleting ? 'Deleting...' : 'Delete', onClick: performDelete },
+    ]
+
     return (
         <div className={`${cssClass}-${type}`}>
 
@@ -79,6 +111,17 @@ export default function Gallery({ type, adminAccess }: { type: galleryType, admi
                 <>
                     <div className="bigimg-overlay" onClick={() => setSelected(null)} />
                     <BigImg src={selected} buttons={navButtons} onClick={close} onPrev={showPrev} onNext={showNext} />
+                </>
+            )}
+
+            {confirmTarget && (
+                <>
+                    <div className="delete-confirm-overlay" onClick={cancelConfirmDelete} />
+                    <div className="delete-confirm-box">
+                        <p className="delete-confirm-text">Archive this image?</p>
+                        <Img src={confirmTarget} cssClass="delete-confirm-img" alt="Image pending archival" />
+                        <ButtonRow buttons={confirmButtons} />
+                    </div>
                 </>
             )}
 
@@ -90,7 +133,8 @@ export default function Gallery({ type, adminAccess }: { type: galleryType, admi
                         onClick={() => setSelected(images[horizIdx] ?? null)}
                         deleteHandler={
                             adminAccess
-                            ? async () => deleteImage(type, stripFileName(images[horizIdx] ?? ''))
+                            ? async () => requestDelete(images[horizIdx] ?? '')
+                            // ? async () => deleteImage(type, stripFileName(images[horizIdx] ?? ''))
                             : null
                         }
                     />
@@ -106,7 +150,8 @@ export default function Gallery({ type, adminAccess }: { type: galleryType, admi
                     onClick={() => setSelected(path)}
                     deleteHandler={
                         adminAccess
-                        ? async () => deleteImage(type, stripFileName(path))
+                        ? async () => requestDelete(path)
+                        // ? async () => deleteImage(type, stripFileName(path))
                         : null
                     }
                 />
