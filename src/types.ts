@@ -63,6 +63,7 @@ export type bigImgProps = {
     alt?: string;
     cssClass?: string;
     onClick?: MouseEventHandler;
+    deleteHandler?: (() => Promise<void>) | null;
     onPrev?: () => void;
     onNext?: () => void;
     buttons?: buttonData[];

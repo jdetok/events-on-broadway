@@ -1,7 +1,7 @@
 import type { imgProps } from '@/types';
 
 export default function Img(p: imgProps) {
-    return (<div style={{ position: 'relative' }}>
+    return (<div className={p.cssClass} style={{ position: 'relative' }}>
         {
             (p.deleteHandler !== null) && <button
                 className={`delete-img`}

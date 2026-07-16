@@ -117,6 +117,7 @@ button:hover {
 .btn-row {
     grid-area: btns;
     display: grid;
+    max-width: 100%;
     grid-template-columns: repeat(6, 1fr);
     padding: var(--pdg-cmp);
     height: fit-content;
@@ -327,16 +328,62 @@ button:hover {
     position: fixed;
     inset: 0;
     display: flex;
+    gap: 0.5rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 999;
     pointer-events: none;
+    width: fit-content;
+    margin: 0.5rem auto;
+    border: 2px solid white;
+    border-radius: var(--bdr-rad);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+}
+
+.delete-confirm-prompt {
+    display: flex;
+    border: 1px solid white;
+    border-radius: var(--bdr-rad);
+    padding: var(--pdg-cmp);
+    margin: 0 0;
+    gap: 1rem;
+    align-items: center;
 }
 
 .delete-confirm-text {
-    size: 1.5rem;
+    font-size: 1.5rem;
     color: white;
+}
+
+.delete-confirm-btns {
+    border: 1px solid white;
+    border-radius: var(--bdr-rad);
+}
+
+.delete-confirm-prompt > * > button {
+    z-index: 1000;
+    background-color: rgba(176, 32, 32, 0.7);
+    color: white;
+    margin: 0.4rem;
+}
+
+.delete-confirm-prompt > * > button:hover {
+    background-color: rgba(176, 100, 100, 0.7);
+}
+
+.delete-confirm-img {
+    border: 1px solid white;
+    border-radius: var(--bdr-rad);
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    pointer-events: all;
+}
+
+.delete-confirm-img > .delete-img {
+    display: none;
 }
 
 .bigimg-inner {
@@ -348,7 +395,7 @@ button:hover {
 }
 
 /* highlighted image in vertical gallery */
-.bigimg-inner > img, .delete-confirm-img {
+.bigimg-inner > img {
     border: 1px solid white;
     border-radius: var(--bdr-rad);
     max-width: 90vw;
@@ -371,13 +418,6 @@ button:hover {
     transform: translateX(-50%);
     gap: 8px;
     z-index: 997;
-}
-
-.delete-confirm-box > .btn-row > button {
-    z-index: 1000;
-    background-color: rgba(176, 32, 32, 0.85);
-    color: white;
-    margin: 0.4rem;
 }
 
 .gallery-horiz > .btn-row > button {

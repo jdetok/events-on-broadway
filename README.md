@@ -21,7 +21,11 @@
 ### Horizontal gallery (phone)
 ![photo gallery screenshot](./data/img/screenshots/demo_05162026/phone-gallery-horiz.png "photo gallery screenshot")
 
-### Booking request form
+## Admin page (behind http basic auth)
+#### Confirm Archive Image popup
+![image archival confirmation popup screenshot](./data/img/screenshots/archive_img.png "photo gallery screenshot")
+
+## Booking request form
 #### (showing success message)
 ![booking form screenshot (showing success message)](./data/img/screenshots/demo_05162026/phone-form-success.png "photo gallery screenshot")
 #### (showing error message)

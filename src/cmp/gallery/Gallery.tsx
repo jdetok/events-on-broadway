@@ -62,17 +62,17 @@ export default function Gallery({ type, adminAccess }: { type: galleryType, admi
 
     // keyboard event listeners for navigating 
     const handleNavKeys = (e: KeyboardEvent) => {
-        if (e.key === 'Escape') setSelected(null);
+        if (e.key === 'Escape') { setSelected(null); setConfirmTarget(null) };
         if (e.key === 'ArrowLeft') showPrev();
         if (e.key === 'ArrowRight') showNext();
     };
 
     // register key listeners
     useEffect(() => {
-        if (!selected) return; 
+        if (!selected && !confirmTarget) return; 
         window.addEventListener('keydown', handleNavKeys);
         return () => window.removeEventListener('keydown', handleNavKeys);
-    }, [selected]);
+    }, [selected, confirmTarget]);
 
     // delete confirmation
     const requestDelete = (path: string) => {
@@ -101,7 +101,7 @@ export default function Gallery({ type, adminAccess }: { type: galleryType, admi
 
     const confirmButtons = [
         { cssClass: 'delete-confirm-cancel', buttonType: 'secondary' as const, text: 'Cancel', onClick: cancelConfirmDelete },
-        { cssClass: 'delete-confirm-yes', buttonType: 'secondary' as const, text: deleting ? 'Deleting...' : 'Delete', onClick: performDelete },
+        { cssClass: 'delete-confirm-yes', buttonType: 'secondary' as const, text: deleting ? 'Archiving...' : 'Archive', onClick: performDelete },
     ]
 
     return (
@@ -118,9 +118,12 @@ export default function Gallery({ type, adminAccess }: { type: galleryType, admi
                 <>
                     <div className="delete-confirm-overlay" onClick={cancelConfirmDelete} />
                     <div className="delete-confirm-box">
-                        <p className="delete-confirm-text">Archive this image?</p>
+                        <div className='delete-confirm-prompt'>
+                            <span className="delete-confirm-text">Archive this image?</span>
+                            <ButtonRow cssClass="delete-confirm-btns" buttons={confirmButtons} />
+                        </div>
                         <Img src={confirmTarget} cssClass="delete-confirm-img" alt="Image pending archival" />
-                        <ButtonRow buttons={confirmButtons} />
+                        
                     </div>
                 </>
             )}
@@ -134,7 +137,6 @@ export default function Gallery({ type, adminAccess }: { type: galleryType, admi
                         deleteHandler={
                             adminAccess
                             ? async () => requestDelete(images[horizIdx] ?? '')
-                            // ? async () => deleteImage(type, stripFileName(images[horizIdx] ?? ''))
                             : null
                         }
                     />
@@ -151,7 +153,6 @@ export default function Gallery({ type, adminAccess }: { type: galleryType, admi
                     deleteHandler={
                         adminAccess
                         ? async () => requestDelete(path)
-                        // ? async () => deleteImage(type, stripFileName(path))
                         : null
                     }
                 />
