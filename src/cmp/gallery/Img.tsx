@@ -7,13 +7,14 @@ export default function Img(p: imgProps) {
                 className={`delete-img`}
                 onClick={p.deleteHandler}
                 style={{
+                    pointerEvents: 'all',
                     position: 'absolute',
                     margin: '0.4rem',
                     right: '0',
                     backgroundColor: 'rgba(176, 32, 32, 0.85)',
                     color: 'rgb(255, 255, 255)',
                     fontSize: '1.01rem',
-                    zIndex: 900,
+                    zIndex: 997,
                 }} 
             >Archive Image</button>
         }

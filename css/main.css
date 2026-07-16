@@ -78,6 +78,7 @@ body {
 }
 
 button {
+    pointer-events: all;
     border: var(--bdr-cmp);
     border-radius: var(--bdr-rad);
     padding: 5px 12px;
@@ -90,6 +91,11 @@ button {
 button:hover {
     color: var(--btn-text-color-hover);
     background-color: var(--btn-color-hover);
+}
+
+.delete-img {
+    pointer-events: all;
+    z-index: 999;
 }
 
 .delete-img:hover {
@@ -358,12 +364,13 @@ button:hover {
 }
 
 .delete-confirm-btns {
+    pointer-events: all;
     border: 1px solid white;
     border-radius: var(--bdr-rad);
 }
 
 .delete-confirm-prompt > * > button {
-    z-index: 1000;
+    z-index: 999;
     background-color: rgba(176, 32, 32, 0.7);
     color: white;
     margin: 0.4rem;

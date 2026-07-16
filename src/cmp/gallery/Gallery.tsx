@@ -84,6 +84,7 @@ export default function Gallery({ type, adminAccess }: { type: galleryType, admi
     };
 
     const performDelete = async () => {
+        console.log('called delete');
         if (!confirmTarget) return;
         setDeleting(true);
         try {
