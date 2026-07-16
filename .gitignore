@@ -4,8 +4,8 @@ package-lock.json
 claude
 *.png*
 *.jpg*
-!data/img/screenshots/*/*.png
-!data/img/screenshots/*.jpg
+!data/img/screenshots/**/*.png
+!data/img/screenshots/**/*.jpg
 *.heic*
 .DS_Store
 token.json
