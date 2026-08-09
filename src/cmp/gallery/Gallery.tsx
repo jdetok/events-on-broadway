@@ -7,7 +7,7 @@ import { deleteImage, stripFileName } from "@/utils";
 import type { galleryType } from "@/types";
 
 export default function Gallery({ type, adminAccess }: { type: galleryType, adminAccess?: boolean }) {
-    const cssClass = Gallery.name.toLowerCase();
+    const cssClass = 'gallery';
     const [selected, setSelected] = useState<string | null>(null);
     const [unsortedImages, setUnsortedImages] = useState<string[]>([]);
     const [confirmTarget, setConfirmTarget] = useState<string | null>(null);

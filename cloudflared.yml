@@ -1,5 +1,5 @@
-tunnel: eob
-credentials-file: /etc/cloudflared/8673c5e6-55c3-457d-9c03-1d84e6127d55.json
+tunnel: 76e32d97-b76e-4a76-9186-bc0573357285
+credentials-file: /etc/cloudflared/76e32d97-b76e-4a76-9186-bc0573357285.json
 
 ingress:
   - hostname: eob

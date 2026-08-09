@@ -10,3 +10,5 @@ claude
 .DS_Store
 token.json
 .htpasswd
+cf.json
+demo/

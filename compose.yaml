@@ -33,7 +33,7 @@ services:
             dockerfile: frontend.Dockerfile
         restart: always
         ports:
-            - 3456:80
+            - 3465:80
         depends_on:
             - api
         volumes:
@@ -42,7 +42,8 @@ services:
             - ./data/img/gallery:/data/img/gallery
             - ./src:/app/src
     
-    cloudflared:
+    # need to get a cloudflare tunnel id for this to work. save it as cf.json at project root
+    cf:
         image: cloudflare/cloudflared:latest
         env_file: 
             - .env
@@ -50,3 +51,4 @@ services:
         command: tunnel --config /etc/cloudflared/config.yml run
         volumes:
             - ./cloudflared.yml:/etc/cloudflared/config.yml:ro
+            - ./cf.json:/etc/cloudflared/76e32d97-b76e-4a76-9186-bc0573357285.json:ro
