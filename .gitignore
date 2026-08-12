@@ -8,7 +8,8 @@ claude
 !data/img/screenshots/**/*.jpg
 *.heic*
 .DS_Store
-token.json
+token*.json
 .htpasswd
 cf.json
 demo/
+scripts/startup
