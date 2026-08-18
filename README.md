@@ -1,6 +1,7 @@
 # Events on Broadway (STL) Website Source Code
 - Commissioned by Events on Broadway St. Louis
-- Designed/developed by Justin DeKock April 2026-current
+- Developed/maintained by Justin DeKock April 2026-current
+- [Public Site](https://eventsonbroadwaystl.com)
 
 ## Site architecture
 - ### Data
