@@ -99,7 +99,7 @@ export default function RequestBooking(data: formData) {
             <div className='head'>
                 <h2 className='ttl'>{data.title}</h2>
                 <div className={cssFormMsgDiv}></div>
-                <button className={cssFormFillBtn} onClick={handleFillForm}>Fill Form</button>
+                { /* <button className={cssFormFillBtn} onClick={handleFillForm}>Fill Form</button> */ }
                 <button className={cssFormClearBtn} onClick={handleClearForm}>Clear Form</button>
             </div>
             {/* ADDS EACH FIELD FROM data.inputs AS AN INPUT OR TEXTAREA ELEMENT */}

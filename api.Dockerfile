@@ -7,7 +7,7 @@ RUN npm ci
 
 COPY tsconfig.json api.tsconfig.json ./
 
-COPY token.json ./
+COPY token*.json ./
 
 COPY src/*.ts ./src/
 COPY src/api ./src/api

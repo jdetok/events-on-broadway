@@ -26,7 +26,7 @@ router.post('/booking/submit', async (req, res) => {
 
     try {
         await sendEmail(
-            'jdeko17@gmail.com',
+            'eventsonbroadway314@gmail.com',
             `New Booking Request Received at ${TIME_NOW()}`,
             [
                 `Request made by: ${data.name}`, `Email address: ${data.mail}`, `Estimated attendees: ${data.num}`,

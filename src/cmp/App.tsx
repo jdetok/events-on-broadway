@@ -23,7 +23,7 @@ export default function App() {
 
     return (
         <main className="app">
-            <Icon src={ICON_SRC} />
+            { /* <Icon src={ICON_SRC} /> */ }
             <Title ttl={TITLE} subTtl={SUBTITLE} />
             <ButtonRow buttons={mainSiteButtons} />
             <Gallery type="horiz" key={`horiz-${galleryKey}`} adminAccess={ADMIN_ACCESS}/>
